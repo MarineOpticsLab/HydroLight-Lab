@@ -1,0 +1,40 @@
+0, 400, 700, 0.02, 488, 0.00026, 1, 5.3
+[5.0, 1.0, 0.6]
+19
+0, 0, 0, 1, 0
+3, 1, 0, 0, 0, 0
+2, 2
+0, 0.5,
+0, 1, 440, 1, 0.014
+2, -666, 440, 1, 0.014
+../data/H2OabDefaults_SEAwater.txt
+../data/defaults/astarpchl.txt
+0, -999, -999, -999, -999, -999
+-666, -999, -999, -999, -999, -999
+bstarDummy.txt
+dummybstar.txt
+0, 0, 550, 0.01, 0
+-2, 0, 550, 0.01, 0
+dpf_pure_H2O.txt
+dpf_Petzold_avg_particle.txt
+23
+400,410,420,430,440,450,460,470,480,490,500,510,520,530,540,550,560,570,580,590,600,610,620,630,640,650,660,670,680,690,700
+0,0,0,0,0
+2, 3, 30, 0, 0
+-1, 0, 0, 29.92, 1, 80, 2.5, 15, 5, 300
+5, 1.34, 20, 35, 3
+0, 0
+0, 3, 0, 1, 2
+../data/H2OabDefaults_SEAwater.txt
+1
+X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/ac-files/ac19.txt
+dummyFilteredAc9.txt
+X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb19.txt
+dummyCHLdata.txt
+dummyCDOMdata.txt
+dummyR.bot
+dummydata.txt
+dummyComp.txt
+DummyIrrad.txt
+..\data\MyBiolumData.txt
+DummyRad.txt
