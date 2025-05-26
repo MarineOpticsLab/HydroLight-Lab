@@ -34,6 +34,8 @@
 3. The printout file contains all the run details, as well as all of the output. Very useful, but the data are not very human or computer-readable
 4. The Excel file (and corresponding text file) is more readable, but doesn't contain all the run details
 
+**Question:**
+
 What is the difference between the HydroLight and EcoLight runs? Why is this?
 
 ### Exercise
@@ -56,7 +58,7 @@ Examples:
 
 ### Example from the Iceland Basin
 
-FIGURE
+![image](UW89_matchups_.png)
 
 The above figure shows the remote sensing reflectance (Rrs) at one station in the Iceland Basin. The solid line (trios) is Rrs measured in situ from a surface floating radiometry system. The dashed lines were all created with EcoLight. The IOPs used as input to EcoLight were collected as follows: absorption is from a PSICAM, scattering is from an ac-s, and backscattering is from a hyper-bb combined with (for some of the runs) an ECO-VSF. The difference between each of the EcoLight runs is how we corrected our in situ data. By doing this type of analysis, we can get a handle on how well our IOP measurements match our AOP measurements, and we can explore different IOP correction methods.
 
@@ -80,30 +82,54 @@ We can actually run HE without using the GUI at all. When we step through the GU
 
 We're now going to make the same Iroot file, but manually (or at least, with the help of Python).
 
-COLAB? OR WHAT??
+Open (& run) `01-Create-HE-Iroot-file.ipynb`.
 
 The final step is to actually submit this run. First, we need to copy the input file and runlist to the relevant place on our computer:
 
 - the HE input files needs to be copied to `C:\HE60\run\batch` (or similar)
 - the runlist file needs to be copied to `C:\HE60\run\` (or similar)
 
-And then to run EcoLight, double click on the `run_el` application in `C:\HE60\frontend`. This will create output files in `C:\HE60\output\Ecolight\printout\`
+And then to run EcoLight, double click on the `run_el` application in `C:\HE60\frontend`. 
 
+**Question:**
 
+Does the output from using the GUI match the output from this run?
 
 ## 3. Submit LOTS of runs aka "batch run"
 
-One of the real benefits of HE is being able to build a synthetic dataset. 
+One of the benefits of HE is being able to build a synthetic dataset. 
 Imagine you had a bio-optical model where your constituents were CHL and CDOM,
 and you wanted to generate Rrs spectra for a range of CHL and CDOM values.
 You could step through the GUI manually entering everything, then run HE. 
 This could take a long time depending on how many different combinations of CHL
 and CDOM you have. 
+
 OR you could use e.g., Python, to create all your input files, and then run all 
 your input files at once.
 
-- Use Python to build the appropriate input files and (Iroot, bbroot, and acroot)
-and run EcoLight (`Create-HE-inputs.ipynb`)
-- Use Python to read output from the printout files (this step is maybe redundant
-with the newer version of HE that I think has a better Excel output) (`Read-HE-outputs.ipynb`)
-- Plot (check with Patrick what he had in mind)
+We're going to use Python to create 24 sets of input files and submit these through
+a HE batch run.
+
+Open and run `02-Batch-create-HE-inputs.ipynb` to create all the input files.
+
+Then, as before, copy the files to the appropriate places and run EcoLight, i.e., 
+
+Copy the input file and runlist to the relevant place on our computer:
+
+- the HE input files needs to be copied to `C:\HE60\run\batch` (or similar)
+- the runlist file needs to be copied to `C:\HE60\run\` (or similar)
+
+And then to run EcoLight, double click on the `run_el` application in `C:\HE60\frontend`.
+
+### Exercises
+
+1. How do each of the batch runs differ from each other in terms of:
+ - the absorption coefficient at the surface
+ - the scattering coefficient at the surface
+ - the remote sensing reflectance?
+
+2. Ask yourself a question that you could answer / explore by creating your own batch run where you adjust some of the inputs and compare the output. You can compare the output within your batch run, but also with the example batch run we just did. What did you find using HE? What differences do you see between the HE runs? Can you explain your results? Example questions:
+ - What happens if you use a different bio-optical model, with the same OSM ranges? How different are the IOPs, and the resulting underwater light field (Rrs, Kd, etc)?
+ - What value does the constant of proportionality take between Rrs and (bb/a+bb) for a range of solar angles? (i.e., estimate the value of "G" from this morning's lecture on the RTE and the final result of the QSSA)
+ - Imagine you are on an ocean world different from our own (e.g., the water is much warmer, or more saline, the ocean is a liquid with a different refractive index, the ocean is very shallow), could you detect the concentration of chlorophyll using the standard NASA product for Earth? 
+
