@@ -1,0 +1,3107 @@
+
+     ========================================================
+     |                                                      |
+     |        EcoLight   Version 6.0.1 (MAIN CODE)          |
+     |        Copyright (c) 2019 by John D. Hedley          |
+     |                                                      |
+     |       This copy of HE6 is licensed solely to         |
+     |   Barney Balch, Bigelow Lab for Ocean Sci.           |
+     |                                                      |
+     |     S/N 0061792-07227-01067                          |
+     |                                                      |
+     | THIS PROGRAM IS EXPERIMENTAL AND IS LICENSED "AS IS" |
+     | WITHOUT REPRESENTATION OF WARRANTY OF ANY KIND,      |
+     | EITHER EXPRESS OR IMPLIED.  THE ENTIRE RISK AS TO    |
+     | THE QUALITY AND PERFORMANCE OF HYDROLIGHT IS WITH    |
+     | THE USER.  HYDROLIGHT IS NOT FAULT TOLERANT.         |
+     |                                                      |
+     ========================================================
+
+
+
+  RUN TITLE:  [0.5, 1.0, 0.15] (26 MAY 2025 19:50)                                                                                                                                                                                                                            
+
+  Run started on 26 MAY 2025 at 19:50:49.3
+
+
+  The unit sphere of directions is partitioned into bands that have the standard 10-degree theta spacing
+
+  The AZIMUTHALLY AVERAGED radiance distribution is computed on the following (theta, geometric depth, wavelength) grid:
+         (The closely spaced pairs of depths are used for computation of K-function derivatives)
+
+         I     theta         K       z           L    lambda
+               (deg)                (m)                (nm)
+
+         1      87.5         1     0.000         1     405.0
+         2      80.0         2     0.010         2     415.0
+         3      70.0         3     1.000         3     425.0
+         4      60.0         4     1.010         4     435.0
+         5      50.0         5     2.000         5     445.0
+         6      40.0         6     2.010         6     455.0
+         7      30.0                             7     465.0
+         8      20.0                             8     475.0
+         9      10.0                             9     485.0
+        10       0.0                            10     495.0
+                                                11     505.0
+                                                12     515.0
+                                                13     525.0
+                                                14     535.0
+                                                15     545.0
+                                                16     555.0
+                                                17     565.0
+                                                18     575.0
+                                                19     585.0
+                                                20     595.0
+                                                21     605.0
+                                                22     615.0
+                                                23     625.0
+
+
+  ***** BEGIN IOP MODEL SPECIFICATIONS *****
+
+     The "User Data" IOP routine is being used:
+
+        The absorption and beam attenuation coefficients are obtained from a
+        HydroLight-standard format file of a and c data named
+           X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/ac-files/ac6.txt
+        (2D linear interpolation in depth and wavelength is used to define a and b at all depths and wavelengths)
+
+        This is a 2-component IOP model where
+
+        Component 1 is pure water
+        Component 2 is "everything else" (obtained from the user's data file)
+
+  Component 1 (pure water) specification:
+
+     Pure water a and b values are obtained from the file:
+        ../data/H2OabDefaults_SEAwater.txt                                                                                                                                                                                                                              
+        (Linear interpolation is used to define values at untabulated wavelengths)
+
+  Component 2 (unfiltered ac data) specification:
+
+     The first  2 header records from data file X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/ac-files/ac6.txt are:
+        ac file
+        -----------
+
+         10 header records read
+
+          2 data records read
+
+     The phase function for IOP component  1 comes from file
+        ../data/phase_functions/EcoLight/dpf_pure_H2O.txt
+
+     The first  1 header records from data file ../data/phase_functions/EcoLight/dpf_pure_H2O.txt are:
+        Phase function: A pure water phase function 0.06225*(1.0 + 0.835*cospsi^2) (created 27 Aug 2018 at 16:19)
+
+          2 header records read
+
+     The phase function for IOP component  2 will be chosen to have a bb/b ratio 
+     as specified by ac and bb data files: 
+        X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/ac-files/ac6.txt  and
+        X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt
+        (it is assumed that backscatter by water has been removed from the bb file)
+
+  Backscatter data specification:
+
+
+     Backscatter coefficients will be obtained from a bb data file named
+           X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt
+        (2D linear interpolation in depth and wavelength is used to define bb at all depths and wavelengths)
+
+     The first  2 header records from data file X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt are:
+        bb file
+        -----------
+
+         10 header records read
+
+          2 data records read
+    1 depth data records read in fileX:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt                                                                                                                                            
+   71 wavelength records read in fileX:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt                                                                                                                                            
+
+  ***** END IOP MODEL SPECIFICATIONS *****
+
+
+  ***** BEGIN INELASTIC SCATTER AND INTERNAL SOURCE SPECIFICATIONS *****
+
+     Chlorophyll fluorescence is not included in this run
+
+     CDOM fluorescence is not included in this run
+
+     Raman scattering is not included in this run
+
+  ***** END INELASTIC SCATTER AND INTERNAL SOURCE SPECIFICATIONS *****
+
+
+  ***** BEGIN ATMOSPHERIC MODEL SPECIFICATIONS *****
+
+     Normalized sky radiances are computed using sky model "sky_radiance_HC" (Harrison and Coombes normalized sky radiances)
+
+     The cloud fraction is cloud =  0.0 (0 for a clear sky to 1 for a heavy overcast)
+
+     The sun is placed in band Q(r) = Q( 7) centered at theta = 30.000
+
+     Diffuse and direct sky irradiances are computed using RADTRANX
+        (The Gregg and Carder RADTRAN model eXtended to 300-1000 nm)
+     The RADTRANX clear-sky irradiances are adjusted for cloudiness by the model of Kasten and Czeplak
+
+     Parameter values used in the RADTRANX model:
+          Solar zenith    angle =   30.0  degrees
+          Solar azimuthal angle =    0.0  degrees (downwind is 0)
+          Sea level pressure    =   29.9  in. mercury
+          Day of year not set (mean earth-sun distance used)
+          Air mass type         =    1.0
+          Relative humidity     =   80.0  %
+          Precipitable water    =    2.5  cm
+          24-hr wind speed      =    5.0  m/sec
+          Current wind speed    =    5.0  m/sec
+          Visibility            =   15.0  km
+          Total ozone           =  300.0  Dobson units
+
+     Irradiances are computed just above the sea surface
+
+     Aerosol parameters from the Navy aerosol model used by RADTRANX:
+          alpha                    =   0.2174
+          beta                     =   0.2289
+          asymmetry parameter      =   0.7892
+          single scattering albedo =   0.9928
+
+     Aerosol optical thickness at 550 nm =    0.261
+ 
+
+  ***** END ATMOSPHERIC MODEL SPECIFICATIONS *****
+
+
+  ***** BEGIN AIR-WATER SURFACE SPECIFICATIONS *****
+
+     The air-water surface is for a wind speed of  5.0 m/s
+
+     The water real index of refraction is constant for all wavelengths with the value of 1.340
+
+     The surface wave model is Cox-Munk with azimuthally averaged slope statistics
+
+     The azimuthal angle of the sun relative to the downwind direction is sunphi =   0.0 deg
+
+  ***** END AIR-WATER SURFACE SPECIFICATIONS *****
+
+
+  ***** BEGIN BOTTOM BOUNDARY SPECIFICATIONS *****
+
+     The bottom boundary is an infinitely deep, homogeneous, elastically scattering water body below depth   2.00 m
+        The reflectance of the water column below   2.00 m is modeled by a non-Lambertian BRDF computed from the IOPs at   2.00 m.
+
+  ***** END BOTTOM BOUNDARY SPECIFICATIONS *****
+
+
+  ***** BEGIN WARNING MESSAGES FOR INPUT DATA FILES *****
+
+     Number of data files with warnings:   2
+
+     Data file: X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/ac-files/ac6.txt
+        does not extend over the full range of depths and/or wavelengths selected for this run.
+
+        For depths less than   1.00 m the value at   1.00 m will be used
+        For depths greater than   1.00 m the value at   1.00 m will be used
+
+     Data file: X:/cmitchell/07-teaching-mentoring/03-guestLectures/OceanOpticsSummerClass/2025/HydroLight-Lab/data/bb-files/bb6.txt
+        does not extend over the full range of depths and/or wavelengths selected for this run.
+
+        For depths less than   1.00 m the value at   1.00 m will be used
+
+     WARNING: HydroLight/EcoLight outputs may be inaccurate or unphysical for depths and wavelengths outside the range of the input data.
+
+  ***** END WARNING MESSAGES FOR INPUT DATA FILES *****
+
+
+
+
+     Initialization of EcoLight   completed in  0.4 sec.
+
+
+  * * * * * Output for wavelength band    1 ( 400.0 to  410.0 nm; nominal wavelength =  405.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 400.0 nm to 410.0 nm:
+          Ed(diffuse) =  4.287E-01     Ed(direct) =  6.992E-01     Ed(total) =  1.128E+00
+
+
+  Absorption Coefficients of Individual Components at  405.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0053   0.3311   0.3364
+   3     1.000      0.804     0.0053   0.3311   0.3364
+   5     2.000      1.607     0.0053   0.3311   0.3364
+
+
+  Scattering Coefficients of Individual Components at  405.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0072   0.4600   0.4672
+   3     1.000      0.804     0.0072   0.4600   0.4672
+   5     2.000      1.607     0.0072   0.4600   0.4672
+
+
+  Backscattering Coefficients of Individual Components at  405.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00359  0.01727  0.02086
+   3     1.000      0.804    0.00359  0.01727  0.02086
+   5     2.000      1.607    0.00359  0.01727  0.02086
+
+
+  Summary of Inherent Optical Properties at  405.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.3364    0.4672     0.8035    0.5814    0.02086    0.04465
+   3     1.000      0.804      0.3364    0.4672     0.8035    0.5814    0.02086    0.04465
+   5     2.000      1.607      0.3364    0.4672     0.8035    0.5814    0.02086    0.04465
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     8.9265E-01
+    8    20.00     6.6548E-01
+    7    30.00     4.2780E-01
+    6    40.00     2.5002E-01
+    5    50.00     1.4010E-01
+    4    60.00     7.8675E-02
+    3    70.00     4.5687E-02
+    2    80.00     2.8025E-02
+    1    87.50     2.0151E-02
+    1    92.50     1.6398E-02
+    2   100.00     1.2646E-02
+    3   110.00     9.4904E-03
+    4   120.00     7.5914E-03
+    5   130.00     6.4415E-03
+    6   140.00     5.7431E-03
+    7   150.00     5.3234E-03
+    8   160.00     5.0807E-03
+    9   170.00     4.9561E-03
+   10   180.00     4.9139E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3924
+    mubar_d(inf) = 0.7889
+      mubar(inf) = 0.7344
+          R(inf) = 0.0241
+ Lu(inf)/Ed(inf) = 5.4939E-03 (1/sr)
+          k(inf) = 4.5805E-01 (1/m)
+   absorp(check) = 3.3637E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  405.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.5666E-01     1.6767E+00     1.8334E+00     5.2633E-02     1.1280E+00   0.3360   0.6727   0.5865     4.6662E-02
+
+    1     0.00     0.00     5.7461E-02     1.2662E+00     1.3236E+00     2.3947E-02     1.0993E+00   0.4168   0.8682   0.8124     2.1785E-02
+    3     1.00     0.80     4.0149E-02     8.6077E-01     9.0092E-01     1.6295E-02     7.2050E-01   0.4058   0.8370   0.7817     2.2615E-02
+    5     2.00     1.61     2.6826E-02     5.6795E-01     5.9478E-01     1.0764E-02     4.6660E-01   0.4012   0.8215   0.7664     2.3068E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  405.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        9.743E-03    1.166E-01    8.638E-03    5.402E+00    3.204E-03    2.840E-03
+
+    1     0.00     0.00    5.926E-03    2.163E-01    5.391E-03    4.041E+00
+    3     1.00     0.80    3.910E-03    2.119E-01    5.427E-03    4.167E+00
+    5     2.00     1.61    2.542E-03    1.786E-01    5.447E-03    4.235E+00
+
+
+
+  K-functions (units of 1/meter) at  405.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     3.0653E-01     3.5392E-01     3.5186E-01     3.5555E-01     4.1288E-01     4.1416E-01     4.0314E-01
+     1.000     1.010     1.005     3.8885E-01     4.0564E-01     4.0489E-01     4.0436E-01     4.2978E-01     4.3037E-01     4.2508E-01
+     2.000     2.010     2.005     4.1467E-01     4.2407E-01     4.2365E-01     4.2310E-01     4.3855E-01     4.3891E-01     4.3564E-01
+
+
+     Waveband   1 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    2 ( 410.0 to  420.0 nm; nominal wavelength =  415.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 410.0 nm to 420.0 nm:
+          Ed(diffuse) =  4.394E-01     Ed(direct) =  7.590E-01     Ed(total) =  1.198E+00
+
+
+  Absorption Coefficients of Individual Components at  415.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0044   0.3023   0.3067
+   3     1.000      0.773     0.0044   0.3023   0.3067
+   5     2.000      1.546     0.0044   0.3023   0.3067
+
+
+  Scattering Coefficients of Individual Components at  415.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0065   0.4600   0.4665
+   3     1.000      0.773     0.0065   0.4600   0.4665
+   5     2.000      1.546     0.0065   0.4600   0.4665
+
+
+  Backscattering Coefficients of Individual Components at  415.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00323  0.01713  0.02036
+   3     1.000      0.773    0.00323  0.01713  0.02036
+   5     2.000      1.546    0.00323  0.01713  0.02036
+
+
+  Summary of Inherent Optical Properties at  415.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.3067    0.4665     0.7732    0.6033    0.02036    0.04364
+   3     1.000      0.773      0.3067    0.4665     0.7732    0.6033    0.02036    0.04364
+   5     2.000      1.546      0.3067    0.4665     0.7732    0.6033    0.02036    0.04364
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     8.9880E-01
+    8    20.00     6.8154E-01
+    7    30.00     4.4839E-01
+    6    40.00     2.6852E-01
+    5    50.00     1.5377E-01
+    4    60.00     8.7819E-02
+    3    70.00     5.1594E-02
+    2    80.00     3.1875E-02
+    1    87.50     2.2985E-02
+    1    92.50     1.8714E-02
+    2   100.00     1.4433E-02
+    3   110.00     1.0817E-02
+    4   120.00     8.6278E-03
+    5   130.00     7.2946E-03
+    6   140.00     6.4798E-03
+    7   150.00     5.9868E-03
+    8   160.00     5.6997E-03
+    9   170.00     5.5512E-03
+   10   180.00     5.5007E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3910
+    mubar_d(inf) = 0.7814
+      mubar(inf) = 0.7233
+          R(inf) = 0.0261
+ Lu(inf)/Ed(inf) = 5.8807E-03 (1/sr)
+          k(inf) = 4.2406E-01 (1/m)
+   absorp(check) = 3.0672E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  415.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.6408E-01     1.7677E+00     1.9317E+00     5.6089E-02     1.1985E+00   0.3418   0.6780   0.5914     4.6801E-02
+
+    1     0.00     0.00     6.5473E-02     1.3479E+00     1.4133E+00     2.7311E-02     1.1697E+00   0.4171   0.8678   0.8083     2.3349E-02
+    3     1.00     0.77     4.7462E-02     9.5008E-01     9.9754E-01     1.9272E-02     7.9418E-01   0.4060   0.8359   0.7768     2.4266E-02
+    5     2.00     1.55     3.2933E-02     6.5045E-01     6.8339E-01     1.3211E-02     5.3298E-01   0.4011   0.8194   0.7606     2.4787E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  415.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.056E-02    1.195E-01    8.811E-03    5.312E+00    3.640E-03    3.037E-03
+
+    1     0.00     0.00    6.732E-03    2.218E-01    5.755E-03    4.057E+00
+    3     1.00     0.77    4.603E-03    2.276E-01    5.796E-03    4.187E+00
+    5     2.00     1.55    3.102E-03    1.995E-01    5.820E-03    4.259E+00
+
+
+
+  K-functions (units of 1/meter) at  415.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.7336E-01     3.1988E-01     3.1772E-01     3.2100E-01     3.7820E-01     3.7957E-01     3.6820E-01
+     1.000     1.010     1.005     3.5103E-01     3.6875E-01     3.6791E-01     3.6731E-01     3.9420E-01     3.9487E-01     3.8908E-01
+     2.000     2.010     2.005     3.7701E-01     3.8719E-01     3.8670E-01     3.8609E-01     4.0286E-01     4.0328E-01     3.9958E-01
+
+
+     Waveband   2 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    3 ( 420.0 to  430.0 nm; nominal wavelength =  425.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 420.0 nm to 430.0 nm:
+          Ed(diffuse) =  4.082E-01     Ed(direct) =  7.412E-01     Ed(total) =  1.149E+00
+
+
+  Absorption Coefficients of Individual Components at  425.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0048   0.2755   0.2803
+   3     1.000      0.746     0.0048   0.2755   0.2803
+   5     2.000      1.492     0.0048   0.2755   0.2803
+
+
+  Scattering Coefficients of Individual Components at  425.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0058   0.4600   0.4658
+   3     1.000      0.746     0.0058   0.4600   0.4658
+   5     2.000      1.492     0.0058   0.4600   0.4658
+
+
+  Backscattering Coefficients of Individual Components at  425.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00292  0.01699  0.01990
+   3     1.000      0.746    0.00292  0.01699  0.01990
+   5     2.000      1.492    0.00292  0.01699  0.01990
+
+
+  Summary of Inherent Optical Properties at  425.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2803    0.4658     0.7461    0.6244    0.01990    0.04272
+   3     1.000      0.746      0.2803    0.4658     0.7461    0.6244    0.01990    0.04272
+   5     2.000      1.492      0.2803    0.4658     0.7461    0.6244    0.01990    0.04272
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.0443E-01
+    8    20.00     6.9655E-01
+    7    30.00     4.6822E-01
+    6    40.00     2.8693E-01
+    5    50.00     1.6779E-01
+    4    60.00     9.7441E-02
+    3    70.00     5.7936E-02
+    2    80.00     3.6069E-02
+    1    87.50     2.6096E-02
+    1    92.50     2.1264E-02
+    2   100.00     1.6407E-02
+    3   110.00     1.2287E-02
+    4   120.00     9.7765E-03
+    5   130.00     8.2392E-03
+    6   140.00     7.2941E-03
+    7   150.00     6.7185E-03
+    8   160.00     6.3811E-03
+    9   170.00     6.2056E-03
+   10   180.00     6.1456E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3898
+    mubar_d(inf) = 0.7739
+      mubar(inf) = 0.7122
+          R(inf) = 0.0282
+ Lu(inf)/Ed(inf) = 6.2959E-03 (1/sr)
+          k(inf) = 3.9354E-01 (1/m)
+   absorp(check) = 2.8026E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  425.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.5570E-01     1.6839E+00     1.8396E+00     5.4090E-02     1.1494E+00   0.3474   0.6826   0.5954     4.7059E-02
+
+    1     0.00     0.00     6.7318E-02     1.2955E+00     1.3628E+00     2.8111E-02     1.1234E+00   0.4176   0.8672   0.8037     2.5022E-02
+    3     1.00     0.75     5.0415E-02     9.4304E-01     9.9345E-01     2.0488E-02     7.8711E-01   0.4064   0.8347   0.7717     2.6029E-02
+    5     2.00     1.49     3.6183E-02     6.6730E-01     7.0348E-01     1.4517E-02     5.4533E-01   0.4012   0.8172   0.7545     2.6622E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  425.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.035E-02    1.110E-01    9.001E-03    5.228E+00    3.733E-03    3.248E-03
+
+    1     0.00     0.00    6.904E-03    2.060E-01    6.145E-03    4.072E+00
+    3     1.00     0.75    4.873E-03    2.205E-01    6.191E-03    4.204E+00
+    5     2.00     1.49    3.391E-03    2.002E-01    6.219E-03    4.281E+00
+
+
+
+  K-functions (units of 1/meter) at  425.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.4437E-01     2.8980E-01     2.8756E-01     2.9047E-01     3.4734E-01     3.4880E-01     3.3713E-01
+     1.000     1.010     1.005     3.1735E-01     3.3583E-01     3.3489E-01     3.3429E-01     3.6247E-01     3.6322E-01     3.5695E-01
+     2.000     2.010     2.005     3.4330E-01     3.5419E-01     3.5363E-01     3.5298E-01     3.7096E-01     3.7145E-01     3.6734E-01
+
+
+     Waveband   3 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    4 ( 430.0 to  440.0 nm; nominal wavelength =  435.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 430.0 nm to 440.0 nm:
+          Ed(diffuse) =  4.073E-01     Ed(direct) =  7.763E-01     Ed(total) =  1.184E+00
+
+
+  Absorption Coefficients of Individual Components at  435.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0053   0.2539   0.2592
+   3     1.000      0.724     0.0053   0.2539   0.2592
+   5     2.000      1.449     0.0053   0.2539   0.2592
+
+
+  Scattering Coefficients of Individual Components at  435.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0053   0.4600   0.4653
+   3     1.000      0.724     0.0053   0.4600   0.4653
+   5     2.000      1.449     0.0053   0.4600   0.4653
+
+
+  Backscattering Coefficients of Individual Components at  435.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00264  0.01685  0.01949
+   3     1.000      0.724    0.00264  0.01685  0.01949
+   5     2.000      1.449    0.00264  0.01685  0.01949
+
+
+  Summary of Inherent Optical Properties at  435.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2592    0.4653     0.7245    0.6422    0.01949    0.04188
+   3     1.000      0.724      0.2592    0.4653     0.7245    0.6422    0.01949    0.04188
+   5     2.000      1.449      0.2592    0.4653     0.7245    0.6422    0.01949    0.04188
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.0901E-01
+    8    20.00     7.0896E-01
+    7    30.00     4.8503E-01
+    6    40.00     3.0297E-01
+    5    50.00     1.8032E-01
+    4    60.00     1.0624E-01
+    3    70.00     6.3836E-02
+    2    80.00     4.0017E-02
+    1    87.50     2.9042E-02
+    1    92.50     2.3683E-02
+    2   100.00     1.8285E-02
+    3   110.00     1.3685E-02
+    4   120.00     1.0868E-02
+    5   130.00     9.1341E-03
+    6   140.00     8.0627E-03
+    7   150.00     7.4068E-03
+    8   160.00     7.0203E-03
+    9   170.00     6.8183E-03
+   10   180.00     6.7490E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3888
+    mubar_d(inf) = 0.7675
+      mubar(inf) = 0.7025
+          R(inf) = 0.0302
+ Lu(inf)/Ed(inf) = 6.6712E-03 (1/sr)
+          k(inf) = 3.6900E-01 (1/m)
+   absorp(check) = 2.5921E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  435.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.5865E-01     1.7228E+00     1.8815E+00     5.5955E-02     1.1836E+00   0.3527   0.6870   0.5994     4.7273E-02
+
+    1     0.00     0.00     7.3531E-02     1.3366E+00     1.4102E+00     3.0737E-02     1.1584E+00   0.4180   0.8667   0.7997     2.6533E-02
+    3     1.00     0.72     5.6516E-02     9.9833E-01     1.0548E+00     2.2988E-02     8.3229E-01   0.4067   0.8337   0.7672     2.7620E-02
+    5     2.00     1.45     4.1676E-02     7.2538E-01     7.6706E-01     1.6727E-02     5.9152E-01   0.4014   0.8155   0.7494     2.8278E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  435.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.086E-02    1.108E-01    9.172E-03    5.154E+00    4.069E-03    3.438E-03
+
+    1     0.00     0.00    7.525E-03    2.056E-01    6.496E-03    4.085E+00
+    3     1.00     0.72    5.448E-03    2.282E-01    6.546E-03    4.219E+00
+    5     2.00     1.45    3.891E-03    2.133E-01    6.578E-03    4.299E+00
+
+
+
+  K-functions (units of 1/meter) at  435.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.2152E-01     2.6596E-01     2.6364E-01     2.6618E-01     3.2269E-01     3.2423E-01     3.1229E-01
+     1.000     1.010     1.005     2.9036E-01     3.0946E-01     3.0844E-01     3.0783E-01     3.3706E-01     3.3789E-01     3.3120E-01
+     2.000     2.010     2.005     3.1619E-01     3.2767E-01     3.2705E-01     3.2638E-01     3.4538E-01     3.4593E-01     3.4144E-01
+
+
+     Waveband   4 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    5 ( 440.0 to  450.0 nm; nominal wavelength =  445.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 440.0 nm to 450.0 nm:
+          Ed(diffuse) =  4.682E-01     Ed(direct) =  9.292E-01     Ed(total) =  1.397E+00
+
+
+  Absorption Coefficients of Individual Components at  445.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0075   0.2301   0.2376
+   3     1.000      0.702     0.0075   0.2301   0.2376
+   5     2.000      1.405     0.0075   0.2301   0.2376
+
+
+  Scattering Coefficients of Individual Components at  445.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0048   0.4600   0.4648
+   3     1.000      0.702     0.0048   0.4600   0.4648
+   5     2.000      1.405     0.0048   0.4600   0.4648
+
+
+  Backscattering Coefficients of Individual Components at  445.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00239  0.01672  0.01911
+   3     1.000      0.702    0.00239  0.01672  0.01911
+   5     2.000      1.405    0.00239  0.01672  0.01911
+
+
+  Summary of Inherent Optical Properties at  445.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2376    0.4648     0.7024    0.6617    0.01911    0.04112
+   3     1.000      0.702      0.2376    0.4648     0.7024    0.6617    0.01911    0.04112
+   5     2.000      1.405      0.2376    0.4648     0.7024    0.6617    0.01911    0.04112
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.1385E-01
+    8    20.00     7.2231E-01
+    7    30.00     5.0355E-01
+    6    40.00     3.2114E-01
+    5    50.00     1.9493E-01
+    4    60.00     1.1674E-01
+    3    70.00     7.1021E-02
+    2    80.00     4.4902E-02
+    1    87.50     3.2721E-02
+    1    92.50     2.6720E-02
+    2   100.00     2.0656E-02
+    3   110.00     1.5461E-02
+    4   120.00     1.2259E-02
+    5   130.00     1.0277E-02
+    6   140.00     9.0457E-03
+    7   150.00     8.2874E-03
+    8   160.00     7.8381E-03
+    9   170.00     7.6021E-03
+   10   180.00     7.5208E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3879
+    mubar_d(inf) = 0.7603
+      mubar(inf) = 0.6912
+          R(inf) = 0.0327
+ Lu(inf)/Ed(inf) = 7.1485E-03 (1/sr)
+          k(inf) = 3.4375E-01 (1/m)
+   absorp(check) = 2.3761E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  445.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.8642E-01     2.0231E+00     2.2095E+00     6.6702E-02     1.3974E+00   0.3578   0.6907   0.6023     4.7732E-02
+
+    1     0.00     0.00     9.3051E-02     1.5823E+00     1.6753E+00     3.8955E-02     1.3697E+00   0.4186   0.8656   0.7943     2.8441E-02
+    3     1.00     0.70     7.3415E-02     1.2131E+00     1.2865E+00     2.9906E-02     1.0096E+00   0.4074   0.8322   0.7615     2.9622E-02
+    5     2.00     1.40     5.5652E-02     9.0562E-01     9.6127E-01     2.2359E-02     7.3648E-01   0.4018   0.8132   0.7429     3.0360E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  445.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.313E-02    1.273E-01    9.398E-03    5.079E+00    5.142E-03    3.679E-03
+
+    1     0.00     0.00    9.508E-03    2.363E-01    6.942E-03    4.097E+00
+    3     1.00     0.70    7.065E-03    2.717E-01    6.998E-03    4.233E+00
+    5     2.00     1.40    5.181E-03    2.613E-01    7.034E-03    4.316E+00
+
+
+
+  K-functions (units of 1/meter) at  445.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.9885E-01     2.4185E-01     2.3946E-01     2.4172E-01     2.9758E-01     2.9922E-01     2.8703E-01
+     1.000     1.010     1.005     2.6297E-01     2.8256E-01     2.8144E-01     2.8093E-01     3.1114E-01     3.1206E-01     3.0492E-01
+     2.000     2.010     2.005     2.8853E-01     3.0055E-01     2.9985E-01     2.9921E-01     3.1923E-01     3.1986E-01     3.1497E-01
+
+
+     Waveband   5 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    6 ( 450.0 to  460.0 nm; nominal wavelength =  455.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 450.0 nm to 460.0 nm:
+          Ed(diffuse) =  4.888E-01     Ed(direct) =  1.007E+00     Ed(total) =  1.495E+00
+
+
+  Absorption Coefficients of Individual Components at  455.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0096   0.2067   0.2164
+   3     1.000      0.681     0.0096   0.2067   0.2164
+   5     2.000      1.361     0.0096   0.2067   0.2164
+
+
+  Scattering Coefficients of Individual Components at  455.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0043   0.4600   0.4643
+   3     1.000      0.681     0.0043   0.4600   0.4643
+   5     2.000      1.361     0.0043   0.4600   0.4643
+
+
+  Backscattering Coefficients of Individual Components at  455.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00217  0.01659  0.01876
+   3     1.000      0.681    0.00217  0.01659  0.01876
+   5     2.000      1.361    0.00217  0.01659  0.01876
+
+
+  Summary of Inherent Optical Properties at  455.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2164    0.4643     0.6807    0.6822    0.01876    0.04041
+   3     1.000      0.681      0.2164    0.4643     0.6807    0.6822    0.01876    0.04041
+   5     2.000      1.361      0.2164    0.4643     0.6807    0.6822    0.01876    0.04041
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.1876E-01
+    8    20.00     7.3607E-01
+    7    30.00     5.2314E-01
+    6    40.00     3.4092E-01
+    5    50.00     2.1128E-01
+    4    60.00     1.2881E-01
+    3    70.00     7.9456E-02
+    2    80.00     5.0735E-02
+    1    87.50     3.7157E-02
+    1    92.50     3.0401E-02
+    2   100.00     2.3546E-02
+    3   110.00     1.7639E-02
+    4   120.00     1.3971E-02
+    5   130.00     1.1686E-02
+    6   140.00     1.0257E-02
+    7   150.00     9.3723E-03
+    8   160.00     8.8450E-03
+    9   170.00     8.5667E-03
+   10   180.00     8.4705E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3873
+    mubar_d(inf) = 0.7524
+      mubar(inf) = 0.6787
+          R(inf) = 0.0356
+ Lu(inf)/Ed(inf) = 7.7262E-03 (1/sr)
+          k(inf) = 3.1880E-01 (1/m)
+   absorp(check) = 2.1637E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  455.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9937E-01     2.1545E+00     2.3538E+00     7.2376E-02     1.4955E+00   0.3630   0.6941   0.6046     4.8397E-02
+
+    1     0.00     0.00     1.0758E-01     1.6990E+00     1.8065E+00     4.5126E-02     1.4682E+00   0.4195   0.8642   0.7877     3.0736E-02
+    3     1.00     0.68     8.7054E-02     1.3363E+00     1.4234E+00     3.5538E-02     1.1097E+00   0.4082   0.8304   0.7547     3.2024E-02
+    5     2.00     1.36     6.7798E-02     1.0245E+00     1.0923E+00     2.7284E-02     8.3051E-01   0.4024   0.8107   0.7354     3.2853E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  455.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.447E-02    1.329E-01    9.677E-03    5.001E+00    5.941E-03    3.972E-03
+
+    1     0.00     0.00    1.099E-02    2.468E-01    7.482E-03    4.108E+00
+    3     1.00     0.68    8.373E-03    2.934E-01    7.545E-03    4.245E+00
+    5     2.00     1.36    6.300E-03    2.901E-01    7.586E-03    4.331E+00
+
+
+
+  K-functions (units of 1/meter) at  455.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.7725E-01     2.1848E-01     2.1602E-01     2.1803E-01     2.7300E-01     2.7474E-01     2.6232E-01
+     1.000     1.010     1.005     2.3624E-01     2.5616E-01     2.5494E-01     2.5461E-01     2.8570E-01     2.8673E-01     2.7915E-01
+     2.000     2.010     2.005     2.6138E-01     2.7386E-01     2.7308E-01     2.7254E-01     2.9353E-01     2.9425E-01     2.8895E-01
+
+
+     Waveband   6 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    7 ( 460.0 to  470.0 nm; nominal wavelength =  465.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 460.0 nm to 470.0 nm:
+          Ed(diffuse) =  4.757E-01     Ed(direct) =  1.014E+00     Ed(total) =  1.489E+00
+
+
+  Absorption Coefficients of Individual Components at  465.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0101   0.1888   0.1989
+   3     1.000      0.663     0.0101   0.1888   0.1989
+   5     2.000      1.326     0.0101   0.1888   0.1989
+
+
+  Scattering Coefficients of Individual Components at  465.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0040   0.4600   0.4640
+   3     1.000      0.663     0.0040   0.4600   0.4640
+   5     2.000      1.326     0.0040   0.4600   0.4640
+
+
+  Backscattering Coefficients of Individual Components at  465.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00198  0.01647  0.01845
+   3     1.000      0.663    0.00198  0.01647  0.01845
+   5     2.000      1.326    0.00198  0.01647  0.01845
+
+
+  Summary of Inherent Optical Properties at  465.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1989    0.4640     0.6628    0.7000    0.01845    0.03976
+   3     1.000      0.663      0.1989    0.4640     0.6628    0.7000    0.01845    0.03976
+   5     2.000      1.326      0.1989    0.4640     0.6628    0.7000    0.01845    0.03976
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.2289E-01
+    8    20.00     7.4786E-01
+    7    30.00     5.4030E-01
+    6    40.00     3.5870E-01
+    5    50.00     2.2636E-01
+    4    60.00     1.4021E-01
+    3    70.00     8.7584E-02
+    2    80.00     5.6439E-02
+    1    87.50     4.1533E-02
+    1    92.50     3.4046E-02
+    2   100.00     2.6422E-02
+    3   110.00     1.9813E-02
+    4   120.00     1.5682E-02
+    5   130.00     1.3093E-02
+    6   140.00     1.1466E-02
+    7   150.00     1.0452E-02
+    8   160.00     9.8455E-03
+    9   170.00     9.5240E-03
+   10   180.00     9.4125E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3869
+    mubar_d(inf) = 0.7454
+      mubar(inf) = 0.6673
+          R(inf) = 0.0385
+ Lu(inf)/Ed(inf) = 8.2826E-03 (1/sr)
+          k(inf) = 2.9804E-01 (1/m)
+   absorp(check) = 1.9888E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  465.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9858E-01     2.1359E+00     2.3345E+00     7.3055E-02     1.4892E+00   0.3679   0.6972   0.6066     4.9056E-02
+
+    1     0.00     0.00     1.1477E-01     1.6973E+00     1.8121E+00     4.8236E-02     1.4644E+00   0.4203   0.8627   0.7815     3.2940E-02
+    3     1.00     0.66     9.4822E-02     1.3635E+00     1.4583E+00     3.8792E-02     1.1300E+00   0.4091   0.8288   0.7483     3.4328E-02
+    5     2.00     1.33     7.5514E-02     1.0686E+00     1.1441E+00     3.0444E-02     8.6381E-01   0.4031   0.8084   0.7284     3.5243E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  465.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.481E-02    1.294E-01    9.946E-03    4.932E+00    6.336E-03    4.255E-03
+
+    1     0.00     0.00    1.172E-02    2.401E-01    8.001E-03    4.117E+00
+    3     1.00     0.66    9.119E-03    2.940E-01    8.069E-03    4.254E+00
+    5     2.00     1.33    7.011E-03    2.976E-01    8.116E-03    4.342E+00
+
+
+
+  K-functions (units of 1/meter) at  465.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.5983E-01     1.9940E-01     1.9689E-01     1.9865E-01     2.5271E-01     2.5455E-01     2.4195E-01
+     1.000     1.010     1.005     2.1423E-01     2.3433E-01     2.3303E-01     2.3289E-01     2.6467E-01     2.6580E-01     2.5783E-01
+     2.000     2.010     2.005     2.3889E-01     2.5171E-01     2.5087E-01     2.5044E-01     2.7224E-01     2.7304E-01     2.6737E-01
+
+
+     Waveband   7 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    8 ( 470.0 to  480.0 nm; nominal wavelength =  475.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 470.0 nm to 480.0 nm:
+          Ed(diffuse) =  4.727E-01     Ed(direct) =  1.039E+00     Ed(total) =  1.512E+00
+
+
+  Absorption Coefficients of Individual Components at  475.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0114   0.1707   0.1821
+   3     1.000      0.646     0.0114   0.1707   0.1821
+   5     2.000      1.291     0.0114   0.1707   0.1821
+
+
+  Scattering Coefficients of Individual Components at  475.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0036   0.4600   0.4636
+   3     1.000      0.646     0.0036   0.4600   0.4636
+   5     2.000      1.291     0.0036   0.4600   0.4636
+
+
+  Backscattering Coefficients of Individual Components at  475.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00180  0.01635  0.01815
+   3     1.000      0.646    0.00180  0.01635  0.01815
+   5     2.000      1.291    0.00180  0.01635  0.01815
+
+
+  Summary of Inherent Optical Properties at  475.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1821    0.4636     0.6457    0.7180    0.01815    0.03915
+   3     1.000      0.646      0.1821    0.4636     0.6457    0.7180    0.01815    0.03915
+   5     2.000      1.291      0.1821    0.4636     0.6457    0.7180    0.01815    0.03915
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.2697E-01
+    8    20.00     7.5964E-01
+    7    30.00     5.5783E-01
+    6    40.00     3.7733E-01
+    5    50.00     2.4258E-01
+    4    60.00     1.5275E-01
+    3    70.00     9.6708E-02
+    2    80.00     6.2949E-02
+    1    87.50     4.6575E-02
+    1    92.50     3.8269E-02
+    2   100.00     2.9773E-02
+    3   110.00     2.2363E-02
+    4   120.00     1.7695E-02
+    5   130.00     1.4752E-02
+    6   140.00     1.2891E-02
+    7   150.00     1.1726E-02
+    8   160.00     1.1025E-02
+    9   170.00     1.0652E-02
+   10   180.00     1.0522E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3867
+    mubar_d(inf) = 0.7380
+      mubar(inf) = 0.6551
+          R(inf) = 0.0417
+ Lu(inf)/Ed(inf) = 8.9264E-03 (1/sr)
+          k(inf) = 2.7801E-01 (1/m)
+   absorp(check) = 1.8212E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  475.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         2.0232E-01     2.1594E+00     2.3617E+00     7.5424E-02     1.5117E+00   0.3728   0.7000   0.6081     4.9894E-02
+
+    1     0.00     0.00     1.2541E-01     1.7295E+00     1.8549E+00     5.2826E-02     1.4891E+00   0.4212   0.8610   0.7743     3.5476E-02
+    3     1.00     0.65     1.0566E-01     1.4175E+00     1.5232E+00     4.3337E-02     1.1721E+00   0.4102   0.8269   0.7411     3.6973E-02
+    5     2.00     1.29     8.5953E-02     1.1346E+00     1.2206E+00     3.4732E-02     9.1436E-01   0.4041   0.8059   0.7207     3.7984E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  475.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.551E-02    1.286E-01    1.026E-02    4.862E+00    6.926E-03    4.582E-03
+
+    1     0.00     0.00    1.281E-02    2.387E-01    8.601E-03    4.125E+00
+    3     1.00     0.65    1.017E-02    3.003E-01    8.676E-03    4.261E+00
+    5     2.00     1.29    7.981E-03    3.109E-01    8.729E-03    4.352E+00
+
+
+
+  K-functions (units of 1/meter) at  475.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.4368E-01     1.8139E-01     1.7884E-01     1.8035E-01     2.3331E-01     2.3526E-01     2.2250E-01
+     1.000     1.010     1.005     1.9331E-01     2.1345E-01     2.1205E-01     2.1219E-01     2.4453E-01     2.4577E-01     2.3743E-01
+     2.000     2.010     2.005     2.1738E-01     2.3045E-01     2.2953E-01     2.2928E-01     2.5183E-01     2.5272E-01     2.4669E-01
+
+
+     Waveband   8 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band    9 ( 480.0 to  490.0 nm; nominal wavelength =  485.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 480.0 nm to 490.0 nm:
+          Ed(diffuse) =  4.491E-01     Ed(direct) =  1.015E+00     Ed(total) =  1.464E+00
+
+
+  Absorption Coefficients of Individual Components at  485.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0136   0.1529   0.1665
+   3     1.000      0.630     0.0136   0.1529   0.1665
+   5     2.000      1.260     0.0136   0.1529   0.1665
+
+
+  Scattering Coefficients of Individual Components at  485.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0033   0.4600   0.4633
+   3     1.000      0.630     0.0033   0.4600   0.4633
+   5     2.000      1.260     0.0033   0.4600   0.4633
+
+
+  Backscattering Coefficients of Individual Components at  485.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00165  0.01623  0.01788
+   3     1.000      0.630    0.00165  0.01623  0.01788
+   5     2.000      1.260    0.00165  0.01623  0.01788
+
+
+  Summary of Inherent Optical Properties at  485.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1665    0.4633     0.6298    0.7356    0.01788    0.03859
+   3     1.000      0.630      0.1665    0.4633     0.6298    0.7356    0.01788    0.03859
+   5     2.000      1.260      0.1665    0.4633     0.6298    0.7356    0.01788    0.03859
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3088E-01
+    8    20.00     7.7110E-01
+    7    30.00     5.7522E-01
+    6    40.00     3.9627E-01
+    5    50.00     2.5948E-01
+    4    60.00     1.6614E-01
+    3    70.00     1.0665E-01
+    2    80.00     7.0162E-02
+    1    87.50     5.2218E-02
+    1    92.50     4.3021E-02
+    2   100.00     3.3569E-02
+    3   110.00     2.5268E-02
+    4   120.00     1.9998E-02
+    5   130.00     1.6653E-02
+    6   140.00     1.4525E-02
+    7   150.00     1.3186E-02
+    8   160.00     1.2376E-02
+    9   170.00     1.1943E-02
+   10   180.00     1.1793E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3867
+    mubar_d(inf) = 0.7305
+      mubar(inf) = 0.6424
+          R(inf) = 0.0454
+ Lu(inf)/Ed(inf) = 9.6480E-03 (1/sr)
+          k(inf) = 2.5920E-01 (1/m)
+   absorp(check) = 1.6650E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  485.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9732E-01     2.0839E+00     2.2812E+00     7.4516E-02     1.4641E+00   0.3776   0.7026   0.6091     5.0895E-02
+
+    1     0.00     0.00     1.3106E-01     1.6823E+00     1.8133E+00     5.5349E-02     1.4449E+00   0.4223   0.8589   0.7663     3.8305E-02
+    3     1.00     0.63     1.1241E-01     1.4047E+00     1.5171E+00     4.6248E-02     1.1586E+00   0.4114   0.8248   0.7332     3.9917E-02
+    5     2.00     1.26     9.3274E-02     1.1467E+00     1.2400E+00     3.7794E-02     9.2106E-01   0.4052   0.8032   0.7123     4.1033E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  485.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.555E-02    1.221E-01    1.062E-02    4.793E+00    7.246E-03    4.949E-03
+
+    1     0.00     0.00    1.340E-02    2.268E-01    9.273E-03    4.131E+00
+    3     1.00     0.63    1.084E-02    2.928E-01    9.356E-03    4.267E+00
+    5     2.00     1.26    8.672E-03    3.094E-01    9.415E-03    4.358E+00
+
+
+
+  K-functions (units of 1/meter) at  485.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.2914E-01     1.6487E-01     1.6229E-01     1.6356E-01     2.1527E-01     2.1733E-01     2.0445E-01
+     1.000     1.010     1.005     1.7399E-01     1.9401E-01     1.9253E-01     1.9301E-01     2.2576E-01     2.2712E-01     2.1844E-01
+     2.000     2.010     2.005     1.9738E-01     2.1060E-01     2.0961E-01     2.0958E-01     2.3278E-01     2.3377E-01     2.2739E-01
+
+
+     Waveband   9 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   10 ( 490.0 to  500.0 nm; nominal wavelength =  495.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 490.0 nm to 500.0 nm:
+          Ed(diffuse) =  4.478E-01     Ed(direct) =  1.039E+00     Ed(total) =  1.487E+00
+
+
+  Absorption Coefficients of Individual Components at  495.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0173   0.1360   0.1533
+   3     1.000      0.616     0.0173   0.1360   0.1533
+   5     2.000      1.233     0.0173   0.1360   0.1533
+
+
+  Scattering Coefficients of Individual Components at  495.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0030   0.4600   0.4630
+   3     1.000      0.616     0.0030   0.4600   0.4630
+   5     2.000      1.233     0.0030   0.4600   0.4630
+
+
+  Backscattering Coefficients of Individual Components at  495.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00151  0.01612  0.01763
+   3     1.000      0.616    0.00151  0.01612  0.01763
+   5     2.000      1.233    0.00151  0.01612  0.01763
+
+
+  Summary of Inherent Optical Properties at  495.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1533    0.4630     0.6163    0.7513    0.01763    0.03807
+   3     1.000      0.616      0.1533    0.4630     0.6163    0.7513    0.01763    0.03807
+   5     2.000      1.233      0.1533    0.4630     0.6163    0.7513    0.01763    0.03807
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3428E-01
+    8    20.00     7.8118E-01
+    7    30.00     5.9081E-01
+    6    40.00     4.1362E-01
+    5    50.00     2.7533E-01
+    4    60.00     1.7897E-01
+    3    70.00     1.1636E-01
+    2    80.00     7.7315E-02
+    1    87.50     5.7868E-02
+    1    92.50     4.7803E-02
+    2   100.00     3.7411E-02
+    3   110.00     2.8225E-02
+    4   120.00     2.2349E-02
+    5   130.00     1.8596E-02
+    6   140.00     1.6196E-02
+    7   150.00     1.4677E-02
+    8   160.00     1.3755E-02
+    9   170.00     1.3260E-02
+   10   180.00     1.3087E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3868
+    mubar_d(inf) = 0.7237
+      mubar(inf) = 0.6305
+          R(inf) = 0.0490
+ Lu(inf)/Ed(inf) = 1.0366E-02 (1/sr)
+          k(inf) = 2.4307E-01 (1/m)
+   absorp(check) = 1.5327E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  495.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         2.0190E-01     2.1089E+00     2.3108E+00     7.7173E-02     1.4866E+00   0.3822   0.7049   0.6099     5.1912E-02
+
+    1     0.00     0.00     1.4273E-01     1.7154E+00     1.8582E+00     6.0425E-02     1.4699E+00   0.4234   0.8568   0.7585     4.1109E-02
+    3     1.00     0.62     1.2427E-01     1.4551E+00     1.5794E+00     5.1278E-02     1.1972E+00   0.4126   0.8228   0.7256     4.2829E-02
+    5     2.00     1.23     1.0485E-01     1.2080E+00     1.3128E+00     4.2603E-02     9.6727E-01   0.4063   0.8007   0.7043     4.4045E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  495.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.632E-02    1.218E-01    1.098E-02    4.730E+00    7.903E-03    5.316E-03
+
+    1     0.00     0.00    1.461E-02    2.261E-01    9.941E-03    4.135E+00
+    3     1.00     0.62    1.201E-02    2.986E-01    1.003E-02    4.270E+00
+    5     2.00     1.23    9.766E-03    3.214E-01    1.010E-02    4.363E+00
+
+
+
+  K-functions (units of 1/meter) at  495.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.1716E-01     1.5107E-01     1.4846E-01     1.4946E-01     1.9994E-01     2.0211E-01     1.8913E-01
+     1.000     1.010     1.005     1.5769E-01     1.7749E-01     1.7593E-01     1.7676E-01     2.0978E-01     2.1126E-01     2.0228E-01
+     2.000     2.010     2.005     1.8038E-01     1.9366E-01     1.9260E-01     1.9282E-01     2.1653E-01     2.1762E-01     2.1093E-01
+
+
+     Waveband  10 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   11 ( 500.0 to  510.0 nm; nominal wavelength =  505.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 500.0 nm to 510.0 nm:
+          Ed(diffuse) =  4.326E-01     Ed(direct) =  1.028E+00     Ed(total) =  1.460E+00
+
+
+  Absorption Coefficients of Individual Components at  505.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0256   0.1209   0.1465
+   3     1.000      0.609     0.0256   0.1209   0.1465
+   5     2.000      1.218     0.0256   0.1209   0.1465
+
+
+  Scattering Coefficients of Individual Components at  505.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0028   0.4600   0.4628
+   3     1.000      0.609     0.0028   0.4600   0.4628
+   5     2.000      1.218     0.0028   0.4600   0.4628
+
+
+  Backscattering Coefficients of Individual Components at  505.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00138  0.01601  0.01739
+   3     1.000      0.609    0.00138  0.01601  0.01739
+   5     2.000      1.218    0.00138  0.01601  0.01739
+
+
+  Summary of Inherent Optical Properties at  505.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1465    0.4628     0.6092    0.7596    0.01739    0.03758
+   3     1.000      0.609      0.1465    0.4628     0.6092    0.7596    0.01739    0.03758
+   5     2.000      1.218      0.1465    0.4628     0.6092    0.7596    0.01739    0.03758
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3599E-01
+    8    20.00     7.8629E-01
+    7    30.00     5.9880E-01
+    6    40.00     4.2262E-01
+    5    50.00     2.8365E-01
+    4    60.00     1.8579E-01
+    3    70.00     1.2156E-01
+    2    80.00     8.1170E-02
+    1    87.50     6.0918E-02
+    1    92.50     5.0382E-02
+    2   100.00     3.9481E-02
+    3   110.00     2.9813E-02
+    4   120.00     2.3605E-02
+    5   130.00     1.9627E-02
+    6   140.00     1.7076E-02
+    7   150.00     1.5457E-02
+    8   160.00     1.4472E-02
+    9   170.00     1.3944E-02
+   10   180.00     1.3759E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3867
+    mubar_d(inf) = 0.7203
+      mubar(inf) = 0.6246
+          R(inf) = 0.0508
+ Lu(inf)/Ed(inf) = 1.0719E-02 (1/sr)
+          k(inf) = 2.3452E-01 (1/m)
+   absorp(check) = 1.4648E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  505.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9829E-01     2.0655E+00     2.2638E+00     7.6421E-02     1.4605E+00   0.3854   0.7071   0.6114     5.2326E-02
+
+    1     0.00     0.00     1.4495E-01     1.6886E+00     1.8336E+00     6.1430E-02     1.4455E+00   0.4238   0.8560   0.7548     4.2498E-02
+    3     1.00     0.61     1.2720E-01     1.4442E+00     1.5714E+00     5.2558E-02     1.1872E+00   0.4132   0.8220   0.7220     4.4272E-02
+    5     2.00     1.22     1.0828E-01     1.2095E+00     1.3178E+00     4.4052E-02     9.6732E-01   0.4068   0.7998   0.7006     4.5540E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  505.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.628E-02    1.177E-01    1.115E-02    4.695E+00    8.025E-03    5.495E-03
+
+    1     0.00     0.00    1.484E-02    2.185E-01    1.027E-02    4.140E+00
+    3     1.00     0.61    1.230E-02    2.929E-01    1.036E-02    4.274E+00
+    5     2.00     1.22    1.009E-02    3.186E-01    1.043E-02    4.367E+00
+
+
+
+  K-functions (units of 1/meter) at  505.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.1083E-01     1.4393E-01     1.4131E-01     1.4203E-01     1.9189E-01     1.9410E-01     1.8106E-01
+     1.000     1.010     1.005     1.4907E-01     1.6883E-01     1.6723E-01     1.6817E-01     2.0136E-01     2.0290E-01     1.9374E-01
+     2.000     2.010     2.005     1.7136E-01     1.8473E-01     1.8364E-01     1.8394E-01     2.0795E-01     2.0909E-01     2.0222E-01
+
+
+     Waveband  11 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   12 ( 510.0 to  520.0 nm; nominal wavelength =  515.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 510.0 nm to 520.0 nm:
+          Ed(diffuse) =  4.102E-01     Ed(direct) =  9.960E-01     Ed(total) =  1.406E+00
+
+
+  Absorption Coefficients of Individual Components at  515.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0396   0.1073   0.1469
+   3     1.000      0.609     0.0396   0.1073   0.1469
+   5     2.000      1.219     0.0396   0.1073   0.1469
+
+
+  Scattering Coefficients of Individual Components at  515.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0025   0.4600   0.4625
+   3     1.000      0.609     0.0025   0.4600   0.4625
+   5     2.000      1.219     0.0025   0.4600   0.4625
+
+
+  Backscattering Coefficients of Individual Components at  515.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00127  0.01590  0.01717
+   3     1.000      0.609    0.00127  0.01590  0.01717
+   5     2.000      1.219    0.00127  0.01590  0.01717
+
+
+  Summary of Inherent Optical Properties at  515.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1469    0.4625     0.6094    0.7590    0.01717    0.03713
+   3     1.000      0.609      0.1469    0.4625     0.6094    0.7590    0.01717    0.03713
+   5     2.000      1.219      0.1469    0.4625     0.6094    0.7590    0.01717    0.03713
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3576E-01
+    8    20.00     7.8556E-01
+    7    30.00     5.9761E-01
+    6    40.00     4.2121E-01
+    5    50.00     2.8226E-01
+    4    60.00     1.8456E-01
+    3    70.00     1.2055E-01
+    2    80.00     8.0364E-02
+    1    87.50     6.0238E-02
+    1    92.50     4.9777E-02
+    2   100.00     3.8964E-02
+    3   110.00     2.9384E-02
+    4   120.00     2.3240E-02
+    5   130.00     1.9306E-02
+    6   140.00     1.6784E-02
+    7   150.00     1.5186E-02
+    8   160.00     1.4213E-02
+    9   170.00     1.3692E-02
+   10   180.00     1.3509E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3862
+    mubar_d(inf) = 0.7210
+      mubar(inf) = 0.6262
+          R(inf) = 0.0501
+ Lu(inf)/Ed(inf) = 1.0553E-02 (1/sr)
+          k(inf) = 2.3454E-01 (1/m)
+   absorp(check) = 1.4688E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  515.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.8865E-01     1.9834E+00     2.1720E+00     7.2947E-02     1.4063E+00   0.3867   0.7090   0.6139     5.1873E-02
+
+    1     0.00     0.00     1.3765E-01     1.6240E+00     1.7617E+00     5.8285E-02     1.3916E+00   0.4234   0.8569   0.7568     4.1883E-02
+    3     1.00     0.61     1.2083E-01     1.3887E+00     1.5095E+00     4.9876E-02     1.1429E+00   0.4128   0.8230   0.7241     4.3641E-02
+    5     2.00     1.22     1.0288E-01     1.1630E+00     1.2659E+00     4.1809E-02     9.3123E-01   0.4064   0.8007   0.7026     4.4897E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  515.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.554E-02    1.116E-01    1.105E-02    4.695E+00    7.603E-03    5.406E-03
+
+    1     0.00     0.00    1.406E-02    2.072E-01    1.010E-02    4.146E+00
+    3     1.00     0.61    1.165E-02    2.797E-01    1.019E-02    4.281E+00
+    5     2.00     1.22    9.557E-03    3.052E-01    1.026E-02    4.375E+00
+
+
+
+  K-functions (units of 1/meter) at  515.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.1036E-01     1.4398E-01     1.4136E-01     1.4182E-01     1.9193E-01     1.9412E-01     1.8101E-01
+     1.000     1.010     1.005     1.4885E-01     1.6892E-01     1.6731E-01     1.6802E-01     2.0137E-01     2.0289E-01     1.9368E-01
+     2.000     2.010     2.005     1.7116E-01     1.8476E-01     1.8365E-01     1.8379E-01     2.0794E-01     2.0907E-01     2.0215E-01
+
+
+     Waveband  12 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   13 ( 520.0 to  530.0 nm; nominal wavelength =  525.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 520.0 nm to 530.0 nm:
+          Ed(diffuse) =  4.132E-01     Ed(direct) =  1.024E+00     Ed(total) =  1.437E+00
+
+
+  Absorption Coefficients of Individual Components at  525.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0417   0.0956   0.1373
+   3     1.000      0.600     0.0417   0.0956   0.1373
+   5     2.000      1.199     0.0417   0.0956   0.1373
+
+
+  Scattering Coefficients of Individual Components at  525.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0023   0.4600   0.4623
+   3     1.000      0.600     0.0023   0.4600   0.4623
+   5     2.000      1.199     0.0023   0.4600   0.4623
+
+
+  Backscattering Coefficients of Individual Components at  525.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00117  0.01580  0.01697
+   3     1.000      0.600    0.00117  0.01580  0.01697
+   5     2.000      1.199    0.00117  0.01580  0.01697
+
+
+  Summary of Inherent Optical Properties at  525.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1373    0.4623     0.5996    0.7710    0.01697    0.03670
+   3     1.000      0.600      0.1373    0.4623     0.5996    0.7710    0.01697    0.03670
+   5     2.000      1.199      0.1373    0.4623     0.5996    0.7710    0.01697    0.03670
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3829E-01
+    8    20.00     7.9318E-01
+    7    30.00     6.0968E-01
+    6    40.00     4.3502E-01
+    5    50.00     2.9524E-01
+    4    60.00     1.9535E-01
+    3    70.00     1.2891E-01
+    2    80.00     8.6646E-02
+    1    87.50     6.5258E-02
+    1    92.50     5.4051E-02
+    2   100.00     4.2423E-02
+    3   110.00     3.2064E-02
+    4   120.00     2.5378E-02
+    5   130.00     2.1074E-02
+    6   140.00     1.8304E-02
+    7   150.00     1.6541E-02
+    8   160.00     1.5465E-02
+    9   170.00     1.4886E-02
+   10   180.00     1.4683E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3865
+    mubar_d(inf) = 0.7156
+      mubar(inf) = 0.6166
+          R(inf) = 0.0533
+ Lu(inf)/Ed(inf) = 1.1185E-02 (1/sr)
+          k(inf) = 2.2268E-01 (1/m)
+   absorp(check) = 1.3730E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  525.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9437E-01     2.0220E+00     2.2164E+00     7.5888E-02     1.4374E+00   0.3904   0.7109   0.6143     5.2797E-02
+
+    1     0.00     0.00     1.4887E-01     1.6662E+00     1.8150E+00     6.3173E-02     1.4246E+00   0.4243   0.8550   0.7501     4.4343E-02
+    3     1.00     0.60     1.3207E-01     1.4410E+00     1.5730E+00     5.4661E-02     1.1834E+00   0.4139   0.8213   0.7176     4.6188E-02
+    5     2.00     1.20     1.1381E-01     1.2215E+00     1.3354E+00     4.6372E-02     9.7567E-01   0.4075   0.7987   0.6959     4.7529E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  525.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.634E-02    1.124E-01    1.137E-02    4.645E+00    8.236E-03    5.730E-03
+
+    1     0.00     0.00    1.523E-02    2.087E-01    1.069E-02    4.148E+00
+    3     1.00     0.60    1.277E-02    2.866E-01    1.079E-02    4.281E+00
+    5     2.00     1.20    1.060E-02    3.169E-01    1.086E-02    4.376E+00
+
+
+
+  K-functions (units of 1/meter) at  525.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.0212E-01     1.3423E-01     1.3160E-01     1.3181E-01     1.8081E-01     1.8308E-01     1.6994E-01
+     1.000     1.010     1.005     1.3719E-01     1.5696E-01     1.5530E-01     1.5632E-01     1.8975E-01     1.9137E-01     1.8196E-01
+     2.000     2.010     2.005     1.5885E-01     1.7241E-01     1.7126E-01     1.7163E-01     1.9609E-01     1.9731E-01     1.9017E-01
+
+
+     Waveband  13 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   14 ( 530.0 to  540.0 nm; nominal wavelength =  535.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 530.0 nm to 540.0 nm:
+          Ed(diffuse) =  4.123E-01     Ed(direct) =  1.041E+00     Ed(total) =  1.453E+00
+
+
+  Absorption Coefficients of Individual Components at  535.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0452   0.0850   0.1302
+   3     1.000      0.592     0.0452   0.0850   0.1302
+   5     2.000      1.185     0.0452   0.0850   0.1302
+
+
+  Scattering Coefficients of Individual Components at  535.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0022   0.4600   0.4622
+   3     1.000      0.592     0.0022   0.4600   0.4622
+   5     2.000      1.185     0.0022   0.4600   0.4622
+
+
+  Backscattering Coefficients of Individual Components at  535.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00108  0.01570  0.01677
+   3     1.000      0.592    0.00108  0.01570  0.01677
+   5     2.000      1.185    0.00108  0.01570  0.01677
+
+
+  Summary of Inherent Optical Properties at  535.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1302    0.4622     0.5924    0.7802    0.01677    0.03629
+   3     1.000      0.592      0.1302    0.4622     0.5924    0.7802    0.01677    0.03629
+   5     2.000      1.185      0.1302    0.4622     0.5924    0.7802    0.01677    0.03629
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.4017E-01
+    8    20.00     7.9888E-01
+    7    30.00     6.1880E-01
+    6    40.00     4.4558E-01
+    5    50.00     3.0530E-01
+    4    60.00     2.0383E-01
+    3    70.00     1.3555E-01
+    2    80.00     9.1680E-02
+    1    87.50     6.9300E-02
+    1    92.50     5.7502E-02
+    2   100.00     4.5223E-02
+    3   110.00     3.4238E-02
+    4   120.00     2.7114E-02
+    5   130.00     2.2510E-02
+    6   140.00     1.9535E-02
+    7   150.00     1.7637E-02
+    8   160.00     1.6475E-02
+    9   170.00     1.5849E-02
+   10   180.00     1.5629E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3867
+    mubar_d(inf) = 0.7115
+      mubar(inf) = 0.6092
+          R(inf) = 0.0558
+ Lu(inf)/Ed(inf) = 1.1683E-02 (1/sr)
+          k(inf) = 2.1379E-01 (1/m)
+   absorp(check) = 1.3024E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  535.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9759E-01     2.0396E+00     2.2372E+00     7.7763E-02     1.4533E+00   0.3935   0.7125   0.6148     5.3508E-02
+
+    1     0.00     0.00     1.5704E-01     1.6895E+00     1.8466E+00     6.6745E-02     1.4423E+00   0.4250   0.8536   0.7449     4.6278E-02
+    3     1.00     0.59     1.4041E-01     1.4734E+00     1.6139E+00     5.8228E-02     1.2083E+00   0.4147   0.8200   0.7126     4.8191E-02
+    5     2.00     1.18     1.2208E-01     1.2604E+00     1.3825E+00     4.9840E-02     1.0049E+00   0.4083   0.7973   0.6908     4.9596E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  535.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.688E-02    1.121E-01    1.161E-02    4.607E+00    8.698E-03    5.985E-03
+
+    1     0.00     0.00    1.608E-02    2.082E-01    1.115E-02    4.150E+00
+    3     1.00     0.59    1.360E-02    2.899E-01    1.125E-02    4.282E+00
+    5     2.00     1.18    1.139E-02    3.239E-01    1.133E-02    4.377E+00
+
+
+
+  K-functions (units of 1/meter) at  535.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     9.6081E-02     1.2709E-01     1.2446E-01     1.2442E-01     1.7255E-01     1.7488E-01     1.6172E-01
+     1.000     1.010     1.005     1.2856E-01     1.4810E-01     1.4640E-01     1.4764E-01     1.8110E-01     1.8279E-01     1.7323E-01
+     2.000     2.010     2.005     1.4971E-01     1.6323E-01     1.6204E-01     1.6258E-01     1.8726E-01     1.8855E-01     1.8123E-01
+
+
+     Waveband  14 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   15 ( 540.0 to  550.0 nm; nominal wavelength =  545.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 540.0 nm to 550.0 nm:
+          Ed(diffuse) =  4.017E-01     Ed(direct) =  1.032E+00     Ed(total) =  1.434E+00
+
+
+  Absorption Coefficients of Individual Components at  545.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0511   0.0753   0.1264
+   3     1.000      0.588     0.0511   0.0753   0.1264
+   5     2.000      1.177     0.0511   0.0753   0.1264
+
+
+  Scattering Coefficients of Individual Components at  545.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0020   0.4600   0.4620
+   3     1.000      0.588     0.0020   0.4600   0.4620
+   5     2.000      1.177     0.0020   0.4600   0.4620
+
+
+  Backscattering Coefficients of Individual Components at  545.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00100  0.01560  0.01659
+   3     1.000      0.588    0.00100  0.01560  0.01659
+   5     2.000      1.177    0.00100  0.01560  0.01659
+
+
+  Summary of Inherent Optical Properties at  545.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1264    0.4620     0.5884    0.7851    0.01659    0.03591
+   3     1.000      0.588      0.1264    0.4620     0.5884    0.7851    0.01659    0.03591
+   5     2.000      1.177      0.1264    0.4620     0.5884    0.7851    0.01659    0.03591
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.4115E-01
+    8    20.00     8.0186E-01
+    7    30.00     6.2359E-01
+    6    40.00     4.5116E-01
+    5    50.00     3.1063E-01
+    4    60.00     2.0834E-01
+    3    70.00     1.3909E-01
+    2    80.00     9.4364E-02
+    1    87.50     7.1452E-02
+    1    92.50     5.9332E-02
+    2   100.00     4.6702E-02
+    3   110.00     3.5379E-02
+    4   120.00     2.8017E-02
+    5   130.00     2.3250E-02
+    6   140.00     2.0165E-02
+    7   150.00     1.8193E-02
+    8   160.00     1.6985E-02
+    9   170.00     1.6332E-02
+   10   180.00     1.6104E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3866
+    mubar_d(inf) = 0.7094
+      mubar(inf) = 0.6055
+          R(inf) = 0.0571
+ Lu(inf)/Ed(inf) = 1.1919E-02 (1/sr)
+          k(inf) = 2.0881E-01 (1/m)
+   absorp(check) = 1.2644E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  545.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9488E-01     2.0081E+00     2.2030E+00     7.7121E-02     1.4340E+00   0.3957   0.7141   0.6159     5.3781E-02
+
+    1     0.00     0.00     1.5806E-01     1.6693E+00     1.8273E+00     6.7225E-02     1.4241E+00   0.4253   0.8531   0.7425     4.7206E-02
+    3     1.00     0.59     1.4194E-01     1.4625E+00     1.6044E+00     5.8917E-02     1.1987E+00   0.4151   0.8196   0.7104     4.9151E-02
+    5     2.00     1.18     1.2403E-01     1.2574E+00     1.3814E+00     5.0682E-02     1.0018E+00   0.4086   0.7968   0.6885     5.0590E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  545.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.682E-02    1.092E-01    1.173E-02    4.586E+00    8.754E-03    6.105E-03
+
+    1     0.00     0.00    1.619E-02    2.029E-01    1.137E-02    4.153E+00
+    3     1.00     0.59    1.375E-02    2.853E-01    1.147E-02    4.285E+00
+    5     2.00     1.18    1.157E-02    3.210E-01    1.155E-02    4.379E+00
+
+
+
+  K-functions (units of 1/meter) at  545.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     9.2636E-02     1.2317E-01     1.2053E-01     1.2027E-01     1.6795E-01     1.7032E-01     1.5713E-01
+     1.000     1.010     1.005     1.2371E-01     1.4319E-01     1.4147E-01     1.4277E-01     1.7627E-01     1.7801E-01     1.6834E-01
+     2.000     2.010     2.005     1.4455E-01     1.5811E-01     1.5689E-01     1.5749E-01     1.8233E-01     1.8365E-01     1.7622E-01
+
+
+     Waveband  15 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   16 ( 550.0 to  560.0 nm; nominal wavelength =  555.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 550.0 nm to 560.0 nm:
+          Ed(diffuse) =  3.946E-01     Ed(direct) =  1.031E+00     Ed(total) =  1.425E+00
+
+
+  Absorption Coefficients of Individual Components at  555.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0596   0.0658   0.1254
+   3     1.000      0.587     0.0596   0.0658   0.1254
+   5     2.000      1.175     0.0596   0.0658   0.1254
+
+
+  Scattering Coefficients of Individual Components at  555.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0018   0.4600   0.4618
+   3     1.000      0.587     0.0018   0.4600   0.4618
+   5     2.000      1.175     0.0018   0.4600   0.4618
+
+
+  Backscattering Coefficients of Individual Components at  555.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00092  0.01550  0.01642
+   3     1.000      0.587    0.00092  0.01550  0.01642
+   5     2.000      1.175    0.00092  0.01550  0.01642
+
+
+  Summary of Inherent Optical Properties at  555.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1254    0.4618     0.5873    0.7864    0.01642    0.03555
+   3     1.000      0.587      0.1254    0.4618     0.5873    0.7864    0.01642    0.03555
+   5     2.000      1.175      0.1254    0.4618     0.5873    0.7864    0.01642    0.03555
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.4134E-01
+    8    20.00     8.0241E-01
+    7    30.00     6.2445E-01
+    6    40.00     4.5212E-01
+    5    50.00     3.1152E-01
+    4    60.00     2.0904E-01
+    3    70.00     1.3961E-01
+    2    80.00     9.4718E-02
+    1    87.50     7.1711E-02
+    1    92.50     5.9534E-02
+    2   100.00     4.6846E-02
+    3   110.00     3.5470E-02
+    4   120.00     2.8072E-02
+    5   130.00     2.3281E-02
+    6   140.00     2.0180E-02
+    7   150.00     1.8198E-02
+    8   160.00     1.6983E-02
+    9   170.00     1.6328E-02
+   10   180.00     1.6098E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3863
+    mubar_d(inf) = 0.7091
+      mubar(inf) = 0.6053
+          R(inf) = 0.0571
+ Lu(inf)/Ed(inf) = 1.1895E-02 (1/sr)
+          k(inf) = 2.0725E-01 (1/m)
+   absorp(check) = 1.2544E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  555.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9245E-01     1.9917E+00     2.1842E+00     7.6410E-02     1.4251E+00   0.3970   0.7155   0.6175     5.3618E-02
+
+    1     0.00     0.00     1.5689E-01     1.6585E+00     1.8154E+00     6.6713E-02     1.4154E+00   0.4252   0.8534   0.7429     4.7134E-02
+    3     1.00     0.59     1.4111E-01     1.4550E+00     1.5961E+00     5.8557E-02     1.1931E+00   0.4150   0.8200   0.7108     4.9078E-02
+    5     2.00     1.17     1.2351E-01     1.2529E+00     1.3764E+00     5.0456E-02     9.9871E-01   0.4085   0.7971   0.6889     5.0521E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  555.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.668E-02    1.073E-01    1.171E-02    4.580E+00    8.679E-03    6.090E-03
+
+    1     0.00     0.00    1.605E-02    1.993E-01    1.134E-02    4.158E+00
+    3     1.00     0.59    1.365E-02    2.821E-01    1.144E-02    4.289E+00
+    5     2.00     1.17    1.151E-02    3.185E-01    1.152E-02    4.384E+00
+
+
+
+  K-functions (units of 1/meter) at  555.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     9.1336E-02     1.2197E-01     1.1932E-01     1.1887E-01     1.6653E-01     1.6889E-01     1.5566E-01
+     1.000     1.010     1.005     1.2208E-01     1.4171E-01     1.3997E-01     1.4117E-01     1.7476E-01     1.7650E-01     1.6678E-01
+     2.000     2.010     2.005     1.4283E-01     1.5652E-01     1.5529E-01     1.5581E-01     1.8077E-01     1.8210E-01     1.7461E-01
+
+
+     Waveband  16 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   17 ( 560.0 to  570.0 nm; nominal wavelength =  565.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 560.0 nm to 570.0 nm:
+          Ed(diffuse) =  3.870E-01     Ed(direct) =  1.026E+00     Ed(total) =  1.413E+00
+
+
+  Absorption Coefficients of Individual Components at  565.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0642   0.0573   0.1215
+   3     1.000      0.583     0.0642   0.0573   0.1215
+   5     2.000      1.166     0.0642   0.0573   0.1215
+
+
+  Scattering Coefficients of Individual Components at  565.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0017   0.4600   0.4617
+   3     1.000      0.583     0.0017   0.4600   0.4617
+   5     2.000      1.166     0.0017   0.4600   0.4617
+
+
+  Backscattering Coefficients of Individual Components at  565.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00085  0.01540  0.01626
+   3     1.000      0.583    0.00085  0.01540  0.01626
+   5     2.000      1.166    0.00085  0.01540  0.01626
+
+
+  Summary of Inherent Optical Properties at  565.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1215    0.4617     0.5832    0.7917    0.01626    0.03521
+   3     1.000      0.583      0.1215    0.4617     0.5832    0.7917    0.01626    0.03521
+   5     2.000      1.166      0.1215    0.4617     0.5832    0.7917    0.01626    0.03521
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.4239E-01
+    8    20.00     8.0561E-01
+    7    30.00     6.2962E-01
+    6    40.00     4.5821E-01
+    5    50.00     3.1740E-01
+    4    60.00     2.1406E-01
+    3    70.00     1.4358E-01
+    2    80.00     9.7758E-02
+    1    87.50     7.4163E-02
+    1    92.50     6.1627E-02
+    2   100.00     4.8546E-02
+    3   110.00     3.6789E-02
+    4   120.00     2.9122E-02
+    5   130.00     2.4146E-02
+    6   140.00     2.0918E-02
+    7   150.00     1.8852E-02
+    8   160.00     1.7584E-02
+    9   170.00     1.6898E-02
+   10   180.00     1.6658E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3864
+    mubar_d(inf) = 0.7068
+      mubar(inf) = 0.6011
+          R(inf) = 0.0585
+ Lu(inf)/Ed(inf) = 1.2178E-02 (1/sr)
+          k(inf) = 2.0212E-01 (1/m)
+   absorp(check) = 1.2149E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  565.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.9115E-01     1.9714E+00     2.1626E+00     7.6302E-02     1.4132E+00   0.3992   0.7168   0.6182     5.3991E-02
+
+    1     0.00     0.00     1.5921E-01     1.6474E+00     1.8066E+00     6.7758E-02     1.4047E+00   0.4256   0.8527   0.7400     4.8237E-02
+    3     1.00     0.58     1.4383E-01     1.4521E+00     1.5959E+00     5.9753E-02     1.1899E+00   0.4155   0.8194   0.7081     5.0218E-02
+    5     2.00     1.17     1.2654E-01     1.2568E+00     1.3834E+00     5.1749E-02     1.0010E+00   0.4090   0.7964   0.6862     5.1698E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  565.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.674E-02    1.053E-01    1.185E-02    4.558E+00    8.811E-03    6.234E-03
+
+    1     0.00     0.00    1.629E-02    1.955E-01    1.160E-02    4.160E+00
+    3     1.00     0.58    1.393E-02    2.794E-01    1.171E-02    4.290E+00
+    5     2.00     1.17    1.180E-02    3.175E-01    1.179E-02    4.386E+00
+
+
+
+  K-functions (units of 1/meter) at  565.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     8.7933E-02     1.1798E-01     1.1533E-01     1.1468E-01     1.6182E-01     1.6420E-01     1.5097E-01
+     1.000     1.010     1.005     1.1716E-01     1.3668E-01     1.3492E-01     1.3621E-01     1.6981E-01     1.7159E-01     1.6178E-01
+     2.000     2.010     2.005     1.3758E-01     1.5127E-01     1.5002E-01     1.5062E-01     1.7570E-01     1.7707E-01     1.6948E-01
+
+
+     Waveband  17 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   18 ( 570.0 to  580.0 nm; nominal wavelength =  575.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 570.0 nm to 580.0 nm:
+          Ed(diffuse) =  3.835E-01     Ed(direct) =  1.031E+00     Ed(total) =  1.415E+00
+
+
+  Absorption Coefficients of Individual Components at  575.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0772   0.0508   0.1280
+   3     1.000      0.590     0.0772   0.0508   0.1280
+   5     2.000      1.179     0.0772   0.0508   0.1280
+
+
+  Scattering Coefficients of Individual Components at  575.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0016   0.4600   0.4616
+   3     1.000      0.590     0.0016   0.4600   0.4616
+   5     2.000      1.179     0.0016   0.4600   0.4616
+
+
+  Backscattering Coefficients of Individual Components at  575.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00079  0.01531  0.01610
+   3     1.000      0.590    0.00079  0.01531  0.01610
+   5     2.000      1.179    0.00079  0.01531  0.01610
+
+
+  Summary of Inherent Optical Properties at  575.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1280    0.4616     0.5896    0.7829    0.01610    0.03488
+   3     1.000      0.590      0.1280    0.4616     0.5896    0.7829    0.01610    0.03488
+   5     2.000      1.179      0.1280    0.4616     0.5896    0.7829    0.01610    0.03488
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.4040E-01
+    8    20.00     7.9951E-01
+    7    30.00     6.1969E-01
+    6    40.00     4.4644E-01
+    5    50.00     3.0591E-01
+    4    60.00     2.0414E-01
+    3    70.00     1.3560E-01
+    2    80.00     9.1557E-02
+    1    87.50     6.9090E-02
+    1    92.50     5.7237E-02
+    2   100.00     4.4922E-02
+    3   110.00     3.3917E-02
+    4   120.00     2.6784E-02
+    5   130.00     2.2178E-02
+    6   140.00     1.9204E-02
+    7   150.00     1.7307E-02
+    8   160.00     1.6147E-02
+    9   170.00     1.5521E-02
+   10   180.00     1.5301E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3853
+    mubar_d(inf) = 0.7116
+      mubar(inf) = 0.6105
+          R(inf) = 0.0550
+ Lu(inf)/Ed(inf) = 1.1424E-02 (1/sr)
+          k(inf) = 2.0966E-01 (1/m)
+   absorp(check) = 1.2799E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  575.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.8688E-01     1.9703E+00     2.1571E+00     7.4402E-02     1.4148E+00   0.3981   0.7181   0.6214     5.2587E-02
+
+    1     0.00     0.00     1.5009E-01     1.6415E+00     1.7916E+00     6.3694E-02     1.4041E+00   0.4244   0.8554   0.7482     4.5362E-02
+    3     1.00     0.59     1.3477E-01     1.4366E+00     1.5713E+00     5.5799E-02     1.1809E+00   0.4140   0.8220   0.7160     4.7251E-02
+    5     2.00     1.18     1.1773E-01     1.2338E+00     1.3516E+00     4.7976E-02     9.8616E-01   0.4075   0.7993   0.6942     4.8649E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  575.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.620E-02    1.043E-01    1.145E-02    4.594E+00    8.265E-03    5.842E-03
+
+    1     0.00     0.00    1.528E-02    1.937E-01    1.088E-02    4.168E+00
+    3     1.00     0.59    1.297E-02    2.762E-01    1.099E-02    4.301E+00
+    5     2.00     1.18    1.091E-02    3.125E-01    1.106E-02    4.397E+00
+
+
+
+  K-functions (units of 1/meter) at  575.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     9.2182E-02     1.2396E-01     1.2129E-01     1.2051E-01     1.6882E-01     1.7111E-01     1.5781E-01
+     1.000     1.010     1.005     1.2403E-01     1.4428E-01     1.4254E-01     1.4325E-01     1.7710E-01     1.7878E-01     1.6904E-01
+     2.000     2.010     2.005     1.4496E-01     1.5906E-01     1.5783E-01     1.5800E-01     1.8312E-01     1.8441E-01     1.7690E-01
+
+
+     Waveband  18 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   19 ( 580.0 to  590.0 nm; nominal wavelength =  585.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 580.0 nm to 590.0 nm:
+          Ed(diffuse) =  3.707E-01     Ed(direct) =  1.010E+00     Ed(total) =  1.381E+00
+
+
+  Absorption Coefficients of Individual Components at  585.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.1100   0.0460   0.1560
+   3     1.000      0.617     0.1100   0.0460   0.1560
+   5     2.000      1.235     0.1100   0.0460   0.1560
+
+
+  Scattering Coefficients of Individual Components at  585.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0015   0.4600   0.4615
+   3     1.000      0.617     0.0015   0.4600   0.4615
+   5     2.000      1.235     0.0015   0.4600   0.4615
+
+
+  Backscattering Coefficients of Individual Components at  585.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00073  0.01522  0.01596
+   3     1.000      0.617    0.00073  0.01522  0.01596
+   5     2.000      1.235    0.00073  0.01522  0.01596
+
+
+  Summary of Inherent Optical Properties at  585.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.1560    0.4615     0.6175    0.7473    0.01596    0.03458
+   3     1.000      0.617      0.1560    0.4615     0.6175    0.7473    0.01596    0.03458
+   5     2.000      1.235      0.1560    0.4615     0.6175    0.7473    0.01596    0.03458
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.3248E-01
+    8    20.00     7.7559E-01
+    7    30.00     5.8179E-01
+    6    40.00     4.0302E-01
+    5    50.00     2.6501E-01
+    4    60.00     1.7003E-01
+    3    70.00     1.0908E-01
+    2    80.00     7.1553E-02
+    1    87.50     5.3052E-02
+    1    92.50     4.3533E-02
+    2   100.00     3.3786E-02
+    3   110.00     2.5239E-02
+    4   120.00     1.9814E-02
+    5   130.00     1.6372E-02
+    6   140.00     1.4183E-02
+    7   150.00     1.2805E-02
+    8   160.00     1.1971E-02
+    9   170.00     1.1525E-02
+   10   180.00     1.1370E-02
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3828
+    mubar_d(inf) = 0.7292
+      mubar(inf) = 0.6429
+          R(inf) = 0.0442
+ Lu(inf)/Ed(inf) = 9.1926E-03 (1/sr)
+          k(inf) = 2.4271E-01 (1/m)
+   absorp(check) = 1.5603E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  585.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.7137E-01     1.9198E+00     2.0912E+00     6.7209E-02     1.3808E+00   0.3922   0.7193   0.6282     4.8673E-02
+
+    1     0.00     0.00     1.1922E-01     1.5798E+00     1.6991E+00     5.0129E-02     1.3637E+00   0.4205   0.8632   0.7731     3.6759E-02
+    3     1.00     0.62     1.0404E-01     1.3391E+00     1.4431E+00     4.2605E-02     1.1110E+00   0.4095   0.8297   0.7404     3.8347E-02
+    5     2.00     1.23     8.7948E-02     1.1117E+00     1.1996E+00     3.5451E-02     8.9804E-01   0.4031   0.8078   0.7191     3.9476E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  585.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.422E-02    1.008E-01    1.029E-02    4.728E+00    6.480E-03    4.693E-03
+
+    1     0.00     0.00    1.198E-02    1.872E-01    8.786E-03    4.184E+00
+    3     1.00     0.62    9.855E-03    2.605E-01    8.870E-03    4.323E+00
+    5     2.00     1.23    8.021E-03    2.867E-01    8.931E-03    4.420E+00
+
+
+
+  K-functions (units of 1/meter) at  585.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.1348E-01     1.5144E-01     1.4878E-01     1.4763E-01     1.9986E-01     2.0186E-01     1.8846E-01
+     1.000     1.010     1.005     1.5571E-01     1.7781E-01     1.7621E-01     1.7526E-01     2.0941E-01     2.1077E-01     2.0145E-01
+     2.000     2.010     2.005     1.7852E-01     1.9342E-01     1.9232E-01     1.9132E-01     2.1599E-01     2.1701E-01     2.1000E-01
+
+
+     Waveband  19 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   20 ( 590.0 to  600.0 nm; nominal wavelength =  595.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 590.0 nm to 600.0 nm:
+          Ed(diffuse) =  3.536E-01     Ed(direct) =  9.762E-01     Ed(total) =  1.330E+00
+
+
+  Absorption Coefficients of Individual Components at  595.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.1672   0.0419   0.2091
+   3     1.000      0.670     0.1672   0.0419   0.2091
+   5     2.000      1.341     0.1672   0.0419   0.2091
+
+
+  Scattering Coefficients of Individual Components at  595.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0014   0.4600   0.4614
+   3     1.000      0.670     0.0014   0.4600   0.4614
+   5     2.000      1.341     0.0014   0.4600   0.4614
+
+
+  Backscattering Coefficients of Individual Components at  595.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00068  0.01513  0.01582
+   3     1.000      0.670    0.00068  0.01513  0.01582
+   5     2.000      1.341    0.00068  0.01513  0.01582
+
+
+  Summary of Inherent Optical Properties at  595.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2091    0.4614     0.6704    0.6882    0.01582    0.03428
+   3     1.000      0.670      0.2091    0.4614     0.6704    0.6882    0.01582    0.03428
+   5     2.000      1.341      0.2091    0.4614     0.6704    0.6882    0.01582    0.03428
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     9.1863E-01
+    8    20.00     7.3529E-01
+    7    30.00     5.2135E-01
+    6    40.00     3.3819E-01
+    5    50.00     2.0805E-01
+    4    60.00     1.2557E-01
+    3    70.00     7.6506E-02
+    2    80.00     4.8178E-02
+    1    87.50     3.4884E-02
+    1    92.50     2.8288E-02
+    2   100.00     2.1656E-02
+    3   110.00     1.5984E-02
+    4   120.00     1.2483E-02
+    5   130.00     1.0315E-02
+    6   140.00     8.9643E-03
+    7   150.00     8.1302E-03
+    8   160.00     7.6340E-03
+    9   170.00     7.3722E-03
+   10   180.00     7.2818E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3807
+    mubar_d(inf) = 0.7556
+      mubar(inf) = 0.6881
+          R(inf) = 0.0318
+ Lu(inf)/Ed(inf) = 6.6873E-03 (1/sr)
+          k(inf) = 3.0382E-01 (1/m)
+   absorp(check) = 2.0906E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  595.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.5336E-01     1.8460E+00     1.9994E+00     5.8963E-02     1.3298E+00   0.3845   0.7204   0.6356     4.4340E-02
+
+    1     0.00     0.00     8.4849E-02     1.4971E+00     1.5819E+00     3.5236E-02     1.3061E+00   0.4153   0.8724   0.8033     2.6979E-02
+    3     1.00     0.67     6.9926E-02     1.1937E+00     1.2636E+00     2.8231E-02     1.0020E+00   0.4037   0.8394   0.7706     2.8174E-02
+    5     2.00     1.34     5.5486E-02     9.2955E-01     9.8503E-01     2.2063E-02     7.6168E-01   0.3976   0.8194   0.7509     2.8967E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  595.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.199E-02    9.618E-02    9.015E-03    4.918E+00    4.545E-03    3.418E-03
+
+    1     0.00     0.00    8.403E-03    1.785E-01    6.434E-03    4.193E+00
+    3     1.00     0.67    6.507E-03    2.362E-01    6.494E-03    4.338E+00
+    5     2.00     1.34    4.978E-03    2.465E-01    6.536E-03    4.432E+00
+
+
+
+  K-functions (units of 1/meter) at  595.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     1.5870E-01     2.0631E-01     2.0376E-01     2.0137E-01     2.5871E-01     2.6030E-01     2.4698E-01
+     1.000     1.010     1.005     2.1764E-01     2.4116E-01     2.3985E-01     2.3695E-01     2.7035E-01     2.7132E-01     2.6287E-01
+     2.000     2.010     2.005     2.4270E-01     2.5777E-01     2.5692E-01     2.5468E-01     2.7776E-01     2.7845E-01     2.7238E-01
+
+
+     Waveband  20 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   21 ( 600.0 to  610.0 nm; nominal wavelength =  605.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 600.0 nm to 610.0 nm:
+          Ed(diffuse) =  3.601E-01     Ed(direct) =  1.006E+00     Ed(total) =  1.366E+00
+
+
+  Absorption Coefficients of Individual Components at  605.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.2577   0.0380   0.2957
+   3     1.000      0.757     0.2577   0.0380   0.2957
+   5     2.000      1.514     0.2577   0.0380   0.2957
+
+
+  Scattering Coefficients of Individual Components at  605.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0013   0.4600   0.4613
+   3     1.000      0.757     0.0013   0.4600   0.4613
+   5     2.000      1.514     0.0013   0.4600   0.4613
+
+
+  Backscattering Coefficients of Individual Components at  605.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00063  0.01505  0.01568
+   3     1.000      0.757    0.00063  0.01505  0.01568
+   5     2.000      1.514    0.00063  0.01505  0.01568
+
+
+  Summary of Inherent Optical Properties at  605.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.2957    0.4613     0.7570    0.6093    0.01568    0.03400
+   3     1.000      0.757      0.2957    0.4613     0.7570    0.6093    0.01568    0.03400
+   5     2.000      1.514      0.2957    0.4613     0.7570    0.6093    0.01568    0.03400
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     8.9810E-01
+    8    20.00     6.7886E-01
+    7    30.00     4.4370E-01
+    6    40.00     2.6279E-01
+    5    50.00     1.4814E-01
+    4    60.00     8.2940E-02
+    3    70.00     4.7632E-02
+    2    80.00     2.8722E-02
+    1    87.50     2.0316E-02
+    1    92.50     1.6306E-02
+    2   100.00     1.2340E-02
+    3   110.00     9.0289E-03
+    4   120.00     7.0427E-03
+    5   130.00     5.8421E-03
+    6   140.00     5.1119E-03
+    7   150.00     4.6712E-03
+    8   160.00     4.4146E-03
+    9   170.00     4.2817E-03
+   10   180.00     4.2365E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3805
+    mubar_d(inf) = 0.7870
+      mubar(inf) = 0.7375
+          R(inf) = 0.0214
+ Lu(inf)/Ed(inf) = 4.5966E-03 (1/sr)
+          k(inf) = 4.0101E-01 (1/m)
+   absorp(check) = 2.9575E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  605.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.4749E-01     1.8931E+00     2.0406E+00     5.5647E-02     1.3657E+00   0.3773   0.7214   0.6420     4.0747E-02
+
+    1     0.00     0.00     6.0885E-02     1.5161E+00     1.5770E+00     2.4961E-02     1.3350E+00   0.4100   0.8806   0.8307     1.8698E-02
+    3     1.00     0.76     4.5498E-02     1.0934E+00     1.1389E+00     1.8121E-02     9.2866E-01   0.3983   0.8493   0.7995     1.9513E-02
+    5     2.00     1.51     3.2533E-02     7.6799E-01     8.0052E-01     1.2783E-02     6.3906E-01   0.3929   0.8321   0.7823     2.0002E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  605.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.086E-02    9.793E-02    7.953E-03    5.124E+00    3.222E-03    2.359E-03
+
+    1     0.00     0.00    5.958E-03    1.817E-01    4.463E-03    4.189E+00
+    3     1.00     0.76    4.181E-03    2.208E-01    4.502E-03    4.334E+00
+    5     2.00     1.51    2.892E-03    2.109E-01    4.526E-03    4.419E+00
+
+
+
+  K-functions (units of 1/meter) at  605.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.4085E-01     2.9967E-01     2.9740E-01     2.9288E-01     3.5492E-01     3.5610E-01     3.4314E-01
+     1.000     1.010     1.005     3.2073E-01     3.4385E-01     3.4292E-01     3.3861E-01     3.6934E-01     3.6995E-01     3.6284E-01
+     2.000     2.010     2.005     3.4728E-01     3.6115E-01     3.6059E-01     3.5765E-01     3.7764E-01     3.7805E-01     3.7326E-01
+
+
+     Waveband  21 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   22 ( 610.0 to  620.0 nm; nominal wavelength =  615.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 610.0 nm to 620.0 nm:
+          Ed(diffuse) =  3.486E-01     Ed(direct) =  9.845E-01     Ed(total) =  1.333E+00
+
+
+  Absorption Coefficients of Individual Components at  615.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.2678   0.0355   0.3033
+   3     1.000      0.765     0.2678   0.0355   0.3033
+   5     2.000      1.529     0.2678   0.0355   0.3033
+
+
+  Scattering Coefficients of Individual Components at  615.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0012   0.4600   0.4612
+   3     1.000      0.765     0.0012   0.4600   0.4612
+   5     2.000      1.529     0.0012   0.4600   0.4612
+
+
+  Backscattering Coefficients of Individual Components at  615.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00059  0.01496  0.01555
+   3     1.000      0.765    0.00059  0.01496  0.01555
+   5     2.000      1.529    0.00059  0.01496  0.01555
+
+
+  Summary of Inherent Optical Properties at  615.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.3033    0.4612     0.7645    0.6032    0.01555    0.03373
+   3     1.000      0.765      0.3033    0.4612     0.7645    0.6032    0.01555    0.03373
+   5     2.000      1.529      0.3033    0.4612     0.7645    0.6032    0.01555    0.03373
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     8.9626E-01
+    8    20.00     6.7398E-01
+    7    30.00     4.3732E-01
+    6    40.00     2.5695E-01
+    5    50.00     1.4374E-01
+    4    60.00     7.9963E-02
+    3    70.00     4.5692E-02
+    2    80.00     2.7449E-02
+    1    87.50     1.9376E-02
+    1    92.50     1.5535E-02
+    2   100.00     1.1743E-02
+    3   110.00     8.5832E-03
+    4   120.00     6.6921E-03
+    5   130.00     5.5512E-03
+    6   140.00     4.8587E-03
+    7   150.00     4.4415E-03
+    8   160.00     4.1991E-03
+    9   170.00     4.0738E-03
+   10   180.00     4.0311E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3803
+    mubar_d(inf) = 0.7896
+      mubar(inf) = 0.7415
+          R(inf) = 0.0207
+ Lu(inf)/Ed(inf) = 4.4360E-03 (1/sr)
+          k(inf) = 4.0910E-01 (1/m)
+   absorp(check) = 3.0336E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  615.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.4259E-01     1.8455E+00     1.9881E+00     5.3854E-02     1.3331E+00   0.3777   0.7224   0.6435     4.0397E-02
+
+    1     0.00     0.00     5.7486E-02     1.4782E+00     1.5357E+00     2.3536E-02     1.3028E+00   0.4094   0.8814   0.8330     1.8065E-02
+    3     1.00     0.76     4.2600E-02     1.0569E+00     1.0995E+00     1.6943E-02     8.9878E-01   0.3977   0.8504   0.8020     1.8852E-02
+    5     2.00     1.53     3.0197E-02     7.3595E-01     7.6615E-01     1.1850E-02     6.1334E-01   0.3924   0.8334   0.7851     1.9320E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  615.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.049E-02    9.481E-02    7.867E-03    5.135E+00    3.036E-03    2.277E-03
+
+    1     0.00     0.00    5.615E-03    1.759E-01    4.310E-03    4.192E+00
+    3     1.00     0.76    3.907E-03    2.129E-01    4.347E-03    4.337E+00
+    5     2.00     1.53    2.680E-03    2.022E-01    4.370E-03    4.421E+00
+
+
+
+  K-functions (units of 1/meter) at  615.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.4795E-01     3.0786E-01     3.0562E-01     3.0072E-01     3.6311E-01     3.6425E-01     3.5131E-01
+     1.000     1.010     1.005     3.2942E-01     3.5254E-01     3.5165E-01     3.4717E-01     3.7769E-01     3.7828E-01     3.7125E-01
+     2.000     2.010     2.005     3.5602E-01     3.6983E-01     3.6928E-01     3.6625E-01     3.8603E-01     3.8642E-01     3.8172E-01
+
+
+     Waveband  22 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength band   23 ( 620.0 to  630.0 nm; nominal wavelength =  625.0 nm)  * * * * *
+ 
+
+  RADTRANX clear-sky spectral irradiances averaged over the band from 620.0 nm to 630.0 nm:
+          Ed(diffuse) =  3.421E-01     Ed(direct) =  9.764E-01     Ed(total) =  1.319E+00
+
+
+  Absorption Coefficients of Individual Components at  625.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.2834   0.0333   0.3167
+   3     1.000      0.778     0.2834   0.0333   0.3167
+   5     2.000      1.556     0.2834   0.0333   0.3167
+
+
+  Scattering Coefficients of Individual Components at  625.0 nm
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000     0.0011   0.4600   0.4611
+   3     1.000      0.778     0.0011   0.4600   0.4611
+   5     2.000      1.556     0.0011   0.4600   0.4611
+
+
+  Backscattering Coefficients of Individual Components at  625.0 nm
+  (computed from the scattering coefficients and the phase functions)
+
+  iz   Geo Depth  Opt Depth   Comp 1   Comp 2    Total                                                                                                                                                                                                          
+          (m)                  (1/m)    (1/m)     (1/m)                                                                                                                                                                                                         
+
+   1     0.000      0.000    0.00055  0.01488  0.01543
+   3     1.000      0.778    0.00055  0.01488  0.01543
+   5     2.000      1.556    0.00055  0.01488  0.01543
+
+
+  Summary of Inherent Optical Properties at  625.0 nm
+
+  iz  Geo Depth  Opt Depth    total a   total b    total c    albedo   total bb  total bb/b
+          (m)                  (1/m)      (1/m)               (1/m)
+
+   1     0.000      0.000      0.3167    0.4611     0.7778    0.5928    0.01543    0.03347
+   3     1.000      0.778      0.3167    0.4611     0.7778    0.5928    0.01543    0.03347
+   5     2.000      1.556      0.3167    0.4611     0.7778    0.5928    0.01543    0.03347
+
+
+  Linf, the shape of the asymptotic radiance distribution for source-free water
+        and the IOPs at the maximum requested output depth, is given by
+
+    u    theta     Linf(theta)
+   10     0.00     1.0000E+00
+    9    10.00     8.9317E-01
+    8    20.00     6.6584E-01
+    7    30.00     4.2683E-01
+    6    40.00     2.4749E-01
+    5    50.00     1.3676E-01
+    4    60.00     7.5306E-02
+    3    70.00     4.2698E-02
+    2    80.00     2.5508E-02
+    1    87.50     1.7952E-02
+    1    92.50     1.4375E-02
+    2   100.00     1.0850E-02
+    3   110.00     7.9208E-03
+    4   120.00     6.1739E-03
+    5   130.00     5.1233E-03
+    6   140.00     4.4875E-03
+    7   150.00     4.1057E-03
+    8   160.00     3.8846E-03
+    9   170.00     3.7706E-03
+   10   180.00     3.7319E-03
+
+  The asymptotic AOP values are
+    mubar_u(inf) = 0.3802
+    mubar_d(inf) = 0.7937
+      mubar(inf) = 0.7478
+          R(inf) = 0.0195
+ Lu(inf)/Ed(inf) = 4.2031E-03 (1/sr)
+          k(inf) = 4.2355E-01 (1/m)
+   absorp(check) = 3.1673E-01 = k(inf)*mubar(inf)
+
+
+
+  Spectral Irradiances [units of W/(m^2 nm)], Mean Cosines (mubars), and Irradiance Reflectance at  625.0 nm
+
+   iz     z(m)     zeta        Eou            Eod             Eo             Eu             Ed      mubar_u  mubar_d    mubar      R = Eu/Ed
+
+             in air         1.3940E-01     1.8230E+00     1.9624E+00     5.2651E-02     1.3185E+00   0.3777   0.7233   0.6451     3.9931E-02
+
+    1     0.00     0.00     5.4027E-02     1.4596E+00     1.5136E+00     2.2078E-02     1.2880E+00   0.4086   0.8824   0.8363     1.7142E-02
+    3     1.00     0.78     3.9440E-02     1.0278E+00     1.0672E+00     1.5657E-02     8.7550E-01   0.3970   0.8518   0.8057     1.7884E-02
+    5     2.00     1.56     2.7523E-02     7.0468E-01     7.3221E-01     1.0783E-02     5.8858E-01   0.3918   0.8352   0.7891     1.8320E-02
+
+
+  Selected Spectral Radiances [units of W/(m^2 sr nm)] and Radiance-Irradiance Ratios at  625.0 nm
+
+     [Lu is upwelling (nadir-viewing); Ld is downwelling (zenith-viewing)]
+
+   iz       z     zeta       Lu(z)        Ld(z)        Lu/Ed      Q = Eu/Lu       Lw       Rrs = Lw/Ed
+           (m)            (total up)  (total down)     (1/sr)        (sr)    (water-leave)    (1/sr)
+
+             in air        1.021E-02    9.305E-02    7.745E-03    5.156E+00    2.847E-03    2.159E-03
+
+    1     0.00     0.00    5.265E-03    1.727E-01    4.088E-03    4.194E+00
+    3     1.00     0.78    3.609E-03    2.069E-01    4.123E-03    4.338E+00
+    5     2.00     1.56    2.439E-03    1.940E-01    4.144E-03    4.421E+00
+
+
+
+  K-functions (units of 1/meter) at  625.0 nm
+     (These are accurate local (at depth z) values only when zupper and zlower are closely spaced.)
+
+    zupper    zlower       z           Kou(z)         Kod(z)          Ko(z)          Ku(z)          Kd(z)        Knet(z)         KLu(z)
+
+     0.000     0.010     0.005     2.6090E-01     3.2239E-01     3.2019E-01     3.1481E-01     3.7770E-01     3.7879E-01     3.6590E-01
+     1.000     1.010     1.005     3.4501E-01     3.6801E-01     3.6716E-01     3.6251E-01     3.9260E-01     3.9315E-01     3.8629E-01
+     2.000     2.010     2.005     3.7165E-01     3.8528E-01     3.8476E-01     3.8166E-01     4.0101E-01     4.0137E-01     3.9682E-01
+
+
+     Waveband  23 of  23 completed in    0.0 sec.
+
+
+
+  * * * * * Output for wavelength-integrated and broadband quantities * * * * *
+
+
+  Band-integrated Eo as a function of depth and wavelength in units of W/m^2
+     [values are integrated over the wavelength bands]
+
+     depth      405.0      415.0      425.0      435.0      445.0      455.0      465.0      475.0      485.0      495.0      505.0      515.0      525.0      535.0      545.0      555.0      565.0      575.0      585.0      595.0      605.0      615.0      625.0
+
+    in air  1.833E+01  1.932E+01  1.840E+01  1.881E+01  2.209E+01  2.354E+01  2.334E+01  2.362E+01  2.281E+01  2.311E+01  2.264E+01  2.172E+01  2.216E+01  2.237E+01  2.203E+01  2.184E+01  2.163E+01  2.157E+01  2.091E+01  1.999E+01  2.041E+01  1.988E+01  1.962E+01
+      0.00  1.324E+01  1.413E+01  1.363E+01  1.410E+01  1.675E+01  1.807E+01  1.812E+01  1.855E+01  1.813E+01  1.858E+01  1.834E+01  1.762E+01  1.815E+01  1.847E+01  1.827E+01  1.815E+01  1.807E+01  1.792E+01  1.699E+01  1.582E+01  1.577E+01  1.536E+01  1.514E+01
+      1.00  9.009E+00  9.975E+00  9.935E+00  1.055E+01  1.287E+01  1.423E+01  1.458E+01  1.523E+01  1.517E+01  1.579E+01  1.571E+01  1.510E+01  1.573E+01  1.614E+01  1.604E+01  1.596E+01  1.596E+01  1.571E+01  1.443E+01  1.264E+01  1.139E+01  1.100E+01  1.067E+01
+      2.00  5.948E+00  6.834E+00  7.035E+00  7.671E+00  9.613E+00  1.092E+01  1.144E+01  1.221E+01  1.240E+01  1.313E+01  1.318E+01  1.266E+01  1.335E+01  1.383E+01  1.381E+01  1.376E+01  1.383E+01  1.352E+01  1.200E+01  9.850E+00  8.005E+00  7.662E+00  7.322E+00
+
+
+  Band-integrated quantum Eo as a function of depth and wavelength in units of (micromol photons)/(m^2 s)
+     [values are integrated over the wavelength bands]
+
+     depth      405.0      415.0      425.0      435.0      445.0      455.0      465.0      475.0      485.0      495.0      505.0      515.0      525.0      535.0      545.0      555.0      565.0      575.0      585.0      595.0      605.0      615.0      625.0
+
+    in air  6.207E+01  6.701E+01  6.535E+01  6.842E+01  8.219E+01  8.953E+01  9.074E+01  9.378E+01  9.249E+01  9.562E+01  9.557E+01  9.351E+01  9.727E+01  1.001E+02  1.004E+02  1.013E+02  1.021E+02  1.037E+02  1.023E+02  9.944E+01  1.032E+02  1.022E+02  1.025E+02
+      0.00  4.481E+01  4.903E+01  4.842E+01  5.128E+01  6.232E+01  6.871E+01  7.044E+01  7.365E+01  7.352E+01  7.689E+01  7.740E+01  7.584E+01  7.966E+01  8.258E+01  8.325E+01  8.422E+01  8.533E+01  8.612E+01  8.309E+01  7.868E+01  7.975E+01  7.895E+01  7.908E+01
+      1.00  3.050E+01  3.461E+01  3.529E+01  3.836E+01  4.786E+01  5.414E+01  5.668E+01  6.048E+01  6.151E+01  6.535E+01  6.634E+01  6.499E+01  6.904E+01  7.218E+01  7.310E+01  7.405E+01  7.538E+01  7.553E+01  7.057E+01  6.285E+01  5.760E+01  5.653E+01  5.576E+01
+      2.00  2.014E+01  2.371E+01  2.499E+01  2.789E+01  3.576E+01  4.154E+01  4.447E+01  4.846E+01  5.027E+01  5.432E+01  5.563E+01  5.450E+01  5.860E+01  6.183E+01  6.293E+01  6.386E+01  6.534E+01  6.496E+01  5.866E+01  4.899E+01  4.049E+01  3.939E+01  3.825E+01
+
+
+  PAR and broadband irradiances were not calculated for this run because
+  PAR is meaningful only for runs covering the near-UV and visible spectrum
+  The PAR range is currently set to 400.0 to 700.0 nm
+
+
+  Run completed on 26 MAY 2025 at 19:50:49.9
+
+
+  Total (wall clock) run time =     5.89E-01 sec
+
+  Normal exit from EcoLight

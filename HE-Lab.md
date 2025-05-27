@@ -124,12 +124,13 @@ And then to run EcoLight, double click on the `run_el` application in `C:\HE60\f
 ### Exercises
 
 1. How do each of the batch runs differ from each other in terms of:
- - the absorption coefficient at the surface
- - the scattering coefficient at the surface
- - the remote sensing reflectance?
+     1. the absorption coefficient at the surface
+     2. the scattering coefficient at the surface
+     3. the remote sensing reflectance?
 
 2. Ask yourself a question that you could answer / explore by creating your own batch run where you adjust some of the inputs and compare the output. You can compare the output within your batch run, but also with the example batch run we just did. What did you find using HE? What differences do you see between the HE runs? Can you explain your results? Example questions:
- - What happens if you use a different bio-optical model, with the same OSM ranges? How different are the IOPs, and the resulting underwater light field (Rrs, Kd, etc)?
- - What value does the constant of proportionality take between Rrs and (bb/a+bb) for a range of solar angles? (i.e., estimate the value of "G" from this morning's lecture on the RTE and the final result of the QSSA)
- - Imagine you are on an ocean world different from our own (e.g., the water is much warmer, or more saline, the ocean is a liquid with a different refractive index, the ocean is very shallow), could you detect the concentration of chlorophyll using the standard NASA product for Earth? 
+     1. What happens if you use a different bio-optical model, with the same OSM ranges? How different are the IOPs, and the resulting underwater light field (Rrs, Kd, etc)?
+     2. What value does the constant of proportionality take between Rrs and (bb/a+bb) for a range of solar angles? (i.e., estimate the value of "G" from this morning's lecture on the RTE and the final result of the QSSA)
+     3. Imagine you are on an ocean world different from our own (e.g., the water is much warmer, or more saline, the ocean is a liquid with a different refractive index, the ocean is very shallow), could you detect the concentration of chlorophyll using the standard NASA product for Earth? 
 
+**Note:** There's a notebook in the Lab folder that reads the Rrs data from all the output printout files (rather than the Excel files) - `Read-HE-output.ipynb`. It's old, and it may be more efficient for you to write your own code to read data from the Excel files (depending on what you are doing). But if you do want Rrs data, the code does work, and it could be tweaked to also read out other variables. 
